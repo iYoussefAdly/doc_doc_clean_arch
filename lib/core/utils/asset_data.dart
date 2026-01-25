@@ -10,4 +10,6 @@ abstract class AssetData {
 
   static const String vector2Image =
       "assets/images/splash and on boarding images/Vector (2).png";
+  static const String doctorImage =
+      "assets/images/splash and on boarding images/doctor_image.png";
 }
