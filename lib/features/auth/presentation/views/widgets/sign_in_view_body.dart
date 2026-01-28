@@ -1,5 +1,7 @@
+import 'package:doc_doc_clean_arch/core/widgets/custom_button_widget.dart';
 import 'package:doc_doc_clean_arch/core/widgets/custom_text_field.dart';
 import 'package:doc_doc_clean_arch/features/auth/presentation/views/widgets/auth_intro.dart';
+import 'package:doc_doc_clean_arch/features/auth/presentation/views/widgets/custom_divider.dart';
 import 'package:doc_doc_clean_arch/features/auth/presentation/views/widgets/remember_me_and_forget_pass_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -32,11 +34,14 @@ class SignInViewBody extends StatelessWidget {
             isItPassword: true,
             isObscured: true,
           ),
-          SizedBox(
-            height: 16,
-          ),
+          SizedBox(height: 16),
           RememberMeAndForgetPassWidget(),
-          
+          SizedBox(height: 32),
+          CustomButtonWidget(buttonName: "Login", onTap: () {}),
+          SizedBox(
+            height: 46,
+          ),
+          CustomDivider()
         ],
       ),
     );
