@@ -1,5 +1,6 @@
 import 'package:doc_doc_clean_arch/core/widgets/custom_text_field.dart';
 import 'package:doc_doc_clean_arch/features/auth/presentation/views/widgets/auth_intro.dart';
+import 'package:doc_doc_clean_arch/features/auth/presentation/views/widgets/remember_me_and_forget_pass_widget.dart';
 import 'package:flutter/material.dart';
 
 class SignInViewBody extends StatelessWidget {
@@ -25,7 +26,17 @@ class SignInViewBody extends StatelessWidget {
           SizedBox(height: 36),
           CustomTextField(hintText: "Email", controller: emailController),
           SizedBox(height: 16),
-          CustomTextField(hintText: "Password", controller: passwordController,isItPassword:true,isObscured: true,),
+          CustomTextField(
+            hintText: "Password",
+            controller: passwordController,
+            isItPassword: true,
+            isObscured: true,
+          ),
+          SizedBox(
+            height: 16,
+          ),
+          RememberMeAndForgetPassWidget(),
+          
         ],
       ),
     );
