@@ -22,6 +22,11 @@ abstract class Styles {
     fontWeight: FontWeight.w400,
     color: kTextSecondaryColor,
   );
+  static const styleMedium14 = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w500,
+    color: kBorderAndHintTextColor,
+  );
   static const styleRegular14 = TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.w400,
@@ -35,6 +40,6 @@ abstract class Styles {
   static const styleSemiBold16 = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w600,
-    color: Colors.white
+    color: Colors.white,
   );
 }

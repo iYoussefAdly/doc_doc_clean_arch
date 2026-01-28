@@ -8,10 +8,11 @@ class AuthIntro extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(text1, style: Styles.styleBold24),
         SizedBox(height: 8),
-        Text(text2),
+        Text(text2,style: Styles.styleRegular14,),
       ],
     );
   }

@@ -1,7 +1,11 @@
+import 'package:doc_doc_clean_arch/core/widgets/custom_text_field.dart';
 import 'package:doc_doc_clean_arch/features/auth/presentation/views/widgets/auth_intro.dart';
 import 'package:flutter/material.dart';
+
 class SignInViewBody extends StatelessWidget {
-  const SignInViewBody({super.key});
+  SignInViewBody({super.key});
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -9,18 +13,21 @@ class SignInViewBody extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: 26),
+          SizedBox(height: 40),
           Padding(
             padding: const EdgeInsets.only(left: 7),
-            child: AuthIntro(text1: 'Welcome Back',text2: "We're excited to have you back, can't wait to\nsee what you've been up to since you last\nlogged in.",)
+            child: AuthIntro(
+              text1: 'Welcome Back',
+              text2:
+                  "We're excited to have you back, can't wait to\nsee what you've been up to since you last\nlogged in.",
+            ),
           ),
-          
-          ],
+          SizedBox(height: 36),
+          CustomTextField(hintText: "Email", controller: emailController),
+          SizedBox(height: 16),
+          CustomTextField(hintText: "Password", controller: passwordController,isItPassword:true,isObscured: true,),
+        ],
       ),
     );
   }
 }
-
-
-
-
