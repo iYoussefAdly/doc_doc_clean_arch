@@ -1,18 +1,22 @@
 import 'package:doc_doc_clean_arch/core/utils/app_router.dart';
 import 'package:doc_doc_clean_arch/core/widgets/custom_button_widget.dart';
-import 'package:doc_doc_clean_arch/core/widgets/custom_text_field.dart';
 import 'package:doc_doc_clean_arch/features/auth/presentation/views/widgets/auth_images.dart';
 import 'package:doc_doc_clean_arch/features/auth/presentation/views/widgets/auth_intro.dart';
 import 'package:doc_doc_clean_arch/features/auth/presentation/views/widgets/custom_bottom_text.dart';
 import 'package:doc_doc_clean_arch/features/auth/presentation/views/widgets/custom_divider.dart';
-import 'package:doc_doc_clean_arch/features/auth/presentation/views/widgets/remember_me_and_forget_pass_widget.dart';
+import 'package:doc_doc_clean_arch/features/auth/presentation/views/widgets/sign_up_text_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class SignInViewBody extends StatelessWidget {
-  SignInViewBody({super.key});
+class SignUpViewBody extends StatelessWidget {
+  SignUpViewBody({super.key});
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
+  final TextEditingController genderController = TextEditingController();
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController phoneController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -26,39 +30,37 @@ class SignInViewBody extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 40),
+              SizedBox(height: 80),
               Padding(
                 padding: const EdgeInsets.only(left: 7),
                 child: AuthIntro(
-                  text1: 'Welcome Back',
+                  text1: 'Create Account',
                   text2:
-                      "We're excited to have you back, can't wait to\nsee what you've been up to since you last\nlogged in.",
+                      "Sign up now and start exploring all that our\napp has to offer. We're excited to welcome\nyou to our community!",
                 ),
               ),
               SizedBox(height: 36),
-              CustomTextField(hintText: "Email", controller: emailController),
-              SizedBox(height: 16),
-              CustomTextField(
-                hintText: "Password",
-                controller: passwordController,
-                isItPassword: true,
-                isObscured: true,
+              SignUpTexFields(
+                emailController: emailController,
+                phoneController: phoneController,
+                nameController: nameController,
+                genderController: genderController,
+                passwordController: passwordController,
+                confirmPasswordController: confirmPasswordController,
               ),
-              SizedBox(height: 16),
-              RememberMeAndForgetPassWidget(),
               SizedBox(height: 32),
-              CustomButtonWidget(buttonName: "Login", onTap: () {}),
+              CustomButtonWidget(buttonName: "Create Account", onTap: () {}),
               SizedBox(height: 46),
-              CustomDivider(text: 'Or sign in with'),
+              CustomDivider(text: 'Or sign up with'),
               SizedBox(height: 32),
               Center(child: AuthImages()),
               SizedBox(height: 32),
               Center(
                 child: CustomBottomText(
-                  text1: "Don't have an account yet?",
-                  text2: 'Sign up',
+                  text1: 'Already have an account?',
+                  text2: 'Sign in',
                   onTap: () {
-                    GoRouter.of(context).pushReplacement(AppRouter.kSignUpView);
+                    GoRouter.of(context).pushReplacement(AppRouter.kSignInView);
                   },
                 ),
               ),

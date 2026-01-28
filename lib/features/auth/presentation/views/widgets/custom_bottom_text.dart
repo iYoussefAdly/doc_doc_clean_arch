@@ -3,8 +3,15 @@ import 'package:doc_doc_clean_arch/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class CustomBottomText extends StatelessWidget {
-  const CustomBottomText({super.key});
-
+  const CustomBottomText({
+    super.key,
+    required this.text1,
+    required this.text2,
+    required this.onTap,
+  });
+  final String text1;
+  final String text2;
+  final void Function() onTap;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -43,25 +50,28 @@ class CustomBottomText extends StatelessWidget {
           ),
         ),
         SizedBox(height: 24),
-        RichText(
-          text: TextSpan(
-            children: [
-              TextSpan(
-                text: "Don't have an account yet? ",
-                style: Styles.styleRegular11.copyWith(
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
+        GestureDetector(
+          onTap:onTap,
+          child: RichText(
+            text: TextSpan(
+              children: [
+                TextSpan(
+                  text: "$text1 ",
+                  style: Styles.styleRegular11.copyWith(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-              TextSpan(
-                text: "Sign Up",
-                style: Styles.styleRegular11.copyWith(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 13,
-                  color: kTextPrimaryColor,
+                TextSpan(
+                  text: text2,
+                  style: Styles.styleRegular11.copyWith(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 13,
+                    color: kTextPrimaryColor,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ],
