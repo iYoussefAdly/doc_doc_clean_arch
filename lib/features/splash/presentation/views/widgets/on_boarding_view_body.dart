@@ -1,8 +1,10 @@
+import 'package:doc_doc_clean_arch/core/utils/app_router.dart';
 import 'package:doc_doc_clean_arch/core/widgets/custom_button_widget.dart';
 import 'package:doc_doc_clean_arch/features/splash/presentation/views/widgets/custom_on_boarding_details_text.dart';
 import 'package:doc_doc_clean_arch/features/splash/presentation/views/widgets/custom_row_doc_doc.dart';
 import 'package:doc_doc_clean_arch/features/splash/presentation/views/widgets/custom_stack_on_boarding.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class OnBoardingViewBody extends StatelessWidget {
   const OnBoardingViewBody({super.key});
@@ -19,18 +21,19 @@ class OnBoardingViewBody extends StatelessWidget {
             CustomStackOnBoarding(),
             SizedBox(height: 18),
             CustomOnBoardingDetailsText(),
-            SizedBox(
-              height: 32,
-            ),
+            SizedBox(height: 32),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 32),
-              child: CustomButtonWidget(buttonName: "Get Started", onTap: (){}),
-            )
+              child: CustomButtonWidget(
+                buttonName: "Get Started",
+                onTap: () {
+                  GoRouter.of(context).push(AppRouter.kSignInView);
+                },
+              ),
+            ),
           ],
         ),
       ),
     );
   }
 }
-
-
