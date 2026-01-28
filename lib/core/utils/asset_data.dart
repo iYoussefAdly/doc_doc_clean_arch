@@ -12,4 +12,8 @@ abstract class AssetData {
       "assets/images/splash and on boarding images/Vector (2).png";
   static const String doctorImage =
       "assets/images/splash and on boarding images/doctor_image.png";
+  static const String googleImage = "assets/images/auth images/google.png";
+  static const String faceBookImage =
+      "assets/images/auth images/facebook_image.png";
+  static const String appleImage = "assets/images/auth images/apple_image.png";
 }

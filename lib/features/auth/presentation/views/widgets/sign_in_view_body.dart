@@ -1,6 +1,8 @@
 import 'package:doc_doc_clean_arch/core/widgets/custom_button_widget.dart';
 import 'package:doc_doc_clean_arch/core/widgets/custom_text_field.dart';
+import 'package:doc_doc_clean_arch/features/auth/presentation/views/widgets/auth_images.dart';
 import 'package:doc_doc_clean_arch/features/auth/presentation/views/widgets/auth_intro.dart';
+import 'package:doc_doc_clean_arch/features/auth/presentation/views/widgets/custom_bottom_text.dart';
 import 'package:doc_doc_clean_arch/features/auth/presentation/views/widgets/custom_divider.dart';
 import 'package:doc_doc_clean_arch/features/auth/presentation/views/widgets/remember_me_and_forget_pass_widget.dart';
 import 'package:flutter/material.dart';
@@ -11,9 +13,15 @@ class SignInViewBody extends StatelessWidget {
   final TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return SingleChildScrollView(
+  child: ConstrainedBox(
+    constraints: BoxConstraints(
+      minHeight: MediaQuery.of(context).size.height,
+    ),
+    child: Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(height: 40),
@@ -38,12 +46,16 @@ class SignInViewBody extends StatelessWidget {
           RememberMeAndForgetPassWidget(),
           SizedBox(height: 32),
           CustomButtonWidget(buttonName: "Login", onTap: () {}),
-          SizedBox(
-            height: 46,
-          ),
-          CustomDivider()
+          SizedBox(height: 46),
+          CustomDivider(),
+          SizedBox(height: 32),
+          Center(child: AuthImages()),
+          SizedBox(height: 32),
+          Center(child: CustomBottomText()),
         ],
       ),
-    );
+    ),
+  ),
+);
   }
 }
