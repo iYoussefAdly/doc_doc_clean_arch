@@ -8,8 +8,27 @@ abstract class Styles {
     fontWeight: FontWeight.bold,
     color: kTextPrimaryColor,
   );
+  static const styleBold24 = TextStyle(
+    fontSize: 24,
+    fontWeight: FontWeight.bold,
+    color: kTextPrimaryColor,
+  );
+  static const styleRegular11 = TextStyle(
+    fontSize: 11,
+    fontWeight: FontWeight.w400,
+  );
   static const styleRegular10 = TextStyle(
     fontSize: 10,
+    fontWeight: FontWeight.w400,
+    color: kTextSecondaryColor,
+  );
+  static const styleRegular14 = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+    color: kTextSecondaryColor,
+  );
+  static const styleRegular12 = TextStyle(
+    fontSize: 12,
     fontWeight: FontWeight.w400,
     color: kTextSecondaryColor,
   );
