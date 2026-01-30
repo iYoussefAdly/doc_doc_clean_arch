@@ -1,0 +1,22 @@
+import 'package:bloc/bloc.dart';
+import 'package:dio/dio.dart';
+import 'package:doc_doc_clean_arch/features/auth/domain/entities/user_entity.dart';
+import 'package:doc_doc_clean_arch/features/auth/domain/use_cases/login_use_case.dart';
+import 'package:doc_doc_clean_arch/features/auth/domain/use_cases/params/login_params.dart';
+import 'package:meta/meta.dart';
+
+part 'login_state.dart';
+
+class LoginCubit extends Cubit<LoginState> {
+  LoginCubit(this.loginUseCase) : super(LoginInitial());
+  final LoginUseCase loginUseCase;
+  Future<void> login(LoginParams params) async {
+    emit(LoginLoading());
+    try {
+      final user = await loginUseCase.call(params);
+      emit(LoginSuccess(user: user));
+    } on DioException catch (e) {
+      emit(LoginFailure(errorMessage: e.toString()));
+    }
+  }
+}
