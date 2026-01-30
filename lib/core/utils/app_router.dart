@@ -19,8 +19,12 @@ abstract class AppRouter {
         path: kOnBoardingView,
         builder: (context, state) => OnBoardingView(),
       ),
-      GoRoute(path: kSignInView, builder: (context, state) => SignInView()),
-      GoRoute(path: kSignUpView, builder: (context, state) => SignUpView()),
+      GoRoute(
+        path: kSignInView, 
+        builder: (context, state) => SignInView()),
+      GoRoute(
+        path: kSignUpView, 
+        builder: (context, state) => SignUpView()),
     ],
   );
 }
