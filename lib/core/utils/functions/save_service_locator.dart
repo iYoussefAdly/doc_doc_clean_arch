@@ -16,7 +16,7 @@ Future<void> saveServiceLocator() async {
   getIt.registerSingleton<Dio>(Dio());
   getIt.registerSingleton<ApiServices>(ApiServices(dio: getIt<Dio>()));
   final sharedPreferences = await SharedPreferences.getInstance();
-  getIt.registerSingleton(sharedPreferences);
+  getIt.registerSingleton<SharedPreferences>(sharedPreferences);
 
   getIt.registerSingleton<AuthLocalDataSource>(
     AuthLocalDataSourceImpl(sharedPreferences: getIt<SharedPreferences>()),
