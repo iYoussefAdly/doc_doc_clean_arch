@@ -17,7 +17,8 @@ class SignUpViewBody extends StatelessWidget {
 
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final TextEditingController confirmPasswordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
   final TextEditingController genderController = TextEditingController();
   final TextEditingController nameController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
@@ -27,80 +28,88 @@ class SignUpViewBody extends StatelessWidget {
     return BlocConsumer<RegisterCubit, RegisterState>(
       listener: (context, state) {
         if (state is RegisterFailure) {
-          showSnackBar(context, state.errorMessage);
+          showSnackBar(context, state.errorMessage,Colors.red);
         } else if (state is RegisterSuccess) {
           clearController();
+          showSnackBar(
+            context,
+            "Account created successfully. Please sign in.",
+            Colors.green
+          );
           GoRouter.of(context).pushReplacement(AppRouter.kSignInView);
         }
       },
       builder: (BuildContext context, RegisterState state) {
-        return  SingleChildScrollView(
-        child: ConstrainedBox(
-          constraints: BoxConstraints(
-            minHeight: MediaQuery.of(context).size.height,
-          ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const SizedBox(height: 80),
-                const Padding(
-                  padding: EdgeInsets.only(left: 7),
-                  child: AuthIntro(
-                    text1: 'Create Account',
-                    text2:
-                        "Sign up now and start exploring all that our\napp has to offer. We're excited to welcome\nyou to our community!",
+        return SingleChildScrollView(
+          child: ConstrainedBox(
+            constraints: BoxConstraints(
+              minHeight: MediaQuery.of(context).size.height,
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(height: 80),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 7),
+                    child: AuthIntro(
+                      text1: 'Create Account',
+                      text2:
+                          "Sign up now and start exploring all that our\napp has to offer. We're excited to welcome\nyou to our community!",
+                    ),
                   ),
-                ),
-                const SizedBox(height: 36),
-                SignUpTexFields(
-                  emailController: emailController,
-                  phoneController: phoneController,
-                  nameController: nameController,
-                  genderController: genderController,
-                  passwordController: passwordController,
-                  confirmPasswordController: confirmPasswordController,
-                ),
-                const SizedBox(height: 32),
-                CustomButtonWidget(
-                  isLoading: state is RegisterLoading,
-                  buttonName: "Create Account",
-                  onTap: () {
-                    final params = RegisterParams(
-                      email: emailController.text.trim(),
-                      password: passwordController.text.trim(),
-                      confirmPassword: confirmPasswordController.text.trim(),
-                      name: nameController.text.trim(),
-                      phone: phoneController.text.trim(),
-                      gender: genderController.text.trim(),
-                    );
-                    context.read<RegisterCubit>().register(params);
-                  },
-                ),
-                const SizedBox(height: 46),
-                const CustomDivider(text: 'Or sign up with'),
-                const SizedBox(height: 32),
-                const Center(child: AuthImages()),
-                const SizedBox(height: 32),
-                Center(
-                  child: CustomBottomText(
-                    text1: 'Already have an account?',
-                    text2: 'Sign in',
+                  const SizedBox(height: 36),
+                  SignUpTexFields(
+                    emailController: emailController,
+                    phoneController: phoneController,
+                    nameController: nameController,
+                    genderController: genderController,
+                    passwordController: passwordController,
+                    confirmPasswordController: confirmPasswordController,
+                  ),
+                  const SizedBox(height: 32),
+                  CustomButtonWidget(
+                    isLoading: state is RegisterLoading,
+                    buttonName: "Create Account",
                     onTap: () {
-                      GoRouter.of(context).pushReplacement(AppRouter.kSignInView);
+                      final params = RegisterParams(
+                        email: emailController.text.trim(),
+                        password: passwordController.text.trim(),
+                        confirmPassword: confirmPasswordController.text.trim(),
+                        name: nameController.text.trim(),
+                        phone: phoneController.text.trim(),
+                        gender: genderController.text.trim(),
+                      );
+                      context.read<RegisterCubit>().register(params);
                     },
                   ),
-                ),
-              ],
+                  const SizedBox(height: 46),
+                  const CustomDivider(text: 'Or sign up with'),
+                  const SizedBox(height: 32),
+                  const Center(child: AuthImages()),
+                  const SizedBox(height: 32),
+                  Center(
+                    child: CustomBottomText(
+                      text1: 'Already have an account?',
+                      text2: 'Sign in',
+                      onTap: () {
+                        GoRouter.of(
+                          context,
+                        ).pushReplacement(AppRouter.kSignInView);
+                      },
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
-        ),
-      );
+        );
       },
     );
   }
+
   void clearController() {
     emailController.clear();
     passwordController.clear();
