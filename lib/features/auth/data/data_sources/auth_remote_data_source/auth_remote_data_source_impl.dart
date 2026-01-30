@@ -20,11 +20,15 @@ class AuthRemoteDataSourceImpl extends AuthRemoteDataSource {
         endPoint: kLoginEndPoint,
         data: {'email': params.email, 'password': params.password},
       );
-      final token = response['data']['token'];
+      final data = response['data'] as Map<String, dynamic>? ?? {};
+      final token = data['token'];
       if (token != null) {
         await localDataSource.saveToken(token);
       }
-      return UserModel.fromJson(response['data']);
+      // Handle both cases: user data directly in data or nested in data['user']
+      final userData = data['user'] ?? data;
+      // Pass email from params since API might not return it in response
+      return UserModel.fromJson(userData, email: params.email);
     } catch (e) {
       throw Exception('Login failed: $e');
     }
@@ -43,11 +47,16 @@ class AuthRemoteDataSourceImpl extends AuthRemoteDataSource {
           'gender': params.gender,
         },
       );
-      final token = response['data']['token'];
+      final data = response['data'] as Map<String, dynamic>? ?? {};
+      final token = data['token'];
       if (token != null) {
         await localDataSource.saveToken(token);
       }
-      return UserModel.fromJson(response['data']);
+      // Handle both cases: user data directly in data or nested in data['user']
+      final userData = data['user'] ?? data;
+      // Pass email from params since API doesn't return it in response
+      // Also map username to name if present
+      return UserModel.fromJson(userData, email: params.email);
     } catch (e) {
       throw Exception('Register failed: $e');
     }
