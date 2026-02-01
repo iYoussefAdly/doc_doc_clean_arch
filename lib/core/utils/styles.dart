@@ -8,6 +8,11 @@ abstract class Styles {
     fontWeight: FontWeight.bold,
     color: kTextPrimaryColor,
   );
+  static const styleBold18 = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.bold,
+    color: Colors.black,
+  );
   static const styleBold24 = TextStyle(
     fontSize: 24,
     fontWeight: FontWeight.bold,
@@ -27,6 +32,11 @@ abstract class Styles {
     fontWeight: FontWeight.w500,
     color: kBorderAndHintTextColor,
   );
+  static const styleMedium18 = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.w500,
+    color: Colors.white,
+  );
   static const styleRegular14 = TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.w400,
@@ -41,5 +51,10 @@ abstract class Styles {
     fontSize: 16,
     fontWeight: FontWeight.w600,
     color: Colors.white,
+  );
+  static const styleSemiBold18 = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.w600,
+    color: Colors.black,
   );
 }

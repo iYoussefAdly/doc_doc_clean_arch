@@ -16,4 +16,12 @@ abstract class AssetData {
   static const String faceBookImage =
       "assets/images/auth images/facebook_image.png";
   static const String appleImage = "assets/images/auth images/apple_image.png";
+  static const String notificationImage = "assets/images/home_images/Alert.png";
+  static const String rectangle1 = "assets/images/home_images/rectangle1.png";
+  static const String rectangle2 = "assets/images/home_images/rectangle2.png";
+  static const String nearByImage = "assets/images/home_images/Image.png";
+  static const String first="assets/images/home_images/1.png";
+  static const String second="assets/images/home_images/2.png";
+  static const String third="assets/images/home_images/3.png";
+  static const String fourth="assets/images/home_images/4.png";
 }
