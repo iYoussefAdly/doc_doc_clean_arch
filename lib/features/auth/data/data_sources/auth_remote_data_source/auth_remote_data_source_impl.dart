@@ -14,51 +14,57 @@ class AuthRemoteDataSourceImpl extends AuthRemoteDataSource {
     required this.localDataSource,
   });
   @override
-  Future<UserModel> login(LoginParams params) async {
-    try {
-      final response = await apiServices.post(
-        endPoint: kLoginEndPoint,
-        data: {'email': params.email, 'password': params.password},
-      );
-      final data = response['data'] as Map<String, dynamic>? ?? {};
-      final token = data['token'];
-      if (token != null) {
-        await localDataSource.saveToken(token);
-      }
-      // Handle both cases: user data directly in data or nested in data['user']
-      final userData = data['user'] ?? data;
-      // Pass email from params since API might not return it in response
-      return UserModel.fromJson(userData, email: params.email);
-    } catch (e) {
-      throw Exception('Login failed: $e');
-    }
-  }
   @override
-  Future<UserModel> register(RegisterParams params) async {
-    try {
-      final response = await apiServices.post(
-        endPoint: kRegisterEndPoint,
-        data: {
-          'email': params.email,
-          'password': params.password,
-          'password_confirmation': params.confirmPassword,
-          'name': params.name,
-          'phone': params.phone,
-          'gender': params.gender,
-        },
-      );
-      final data = response['data'] as Map<String, dynamic>? ?? {};
-      final token = data['token'];
-      if (token != null) {
-        await localDataSource.saveToken(token);
-      }
-      // Handle both cases: user data directly in data or nested in data['user']
-      final userData = data['user'] ?? data;
-      // Pass email from params since API doesn't return it in response
-      // Also map username to name if present
-      return UserModel.fromJson(userData, email: params.email);
-    } catch (e) {
-      throw Exception('Register failed: $e');
-    }
+Future<UserModel> login(LoginParams params) async {
+  try {
+    final response = await apiServices.post(
+      endPoint: kLoginEndPoint,
+      data: {
+        'email': params.email,
+        'password': params.password,
+      },
+    );
+    final data = response['data'] as Map<String, dynamic>;
+    final token = data['token'] as String;
+    final userModel = UserModel.fromJson(
+      data,
+      email: params.email,
+      phone: null,  
+      gender: null,
+    );
+    await localDataSource.saveToken(token);
+    return userModel;
+  } catch (e) {
+    throw Exception('Login failed: $e');
   }
+}
+
+ @override
+Future<UserModel> register(RegisterParams params) async {
+  try {
+    final response = await apiServices.post(
+      endPoint: kRegisterEndPoint,
+      data: {
+        'email': params.email,
+        'password': params.password,
+        'password_confirmation': params.confirmPassword,
+        'name': params.name,
+        'phone': params.phone,
+        'gender': params.gender,
+      },
+    );
+    final data = response['data'] as Map<String, dynamic>;
+    final token = data['token'] as String;
+    final userModel = UserModel.fromJson(
+      data,
+      email: params.email,
+      phone: params.phone,
+      gender: params.gender,
+    );
+    await localDataSource.saveToken(token);
+    return userModel;
+  } catch (e) {
+    throw Exception('Register failed: $e');
+  }
+}
 }

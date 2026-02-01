@@ -28,13 +28,13 @@ class SignUpViewBody extends StatelessWidget {
     return BlocConsumer<RegisterCubit, RegisterState>(
       listener: (context, state) {
         if (state is RegisterFailure) {
-          showSnackBar(context, state.errorMessage,Colors.red);
+          showSnackBar(context, message: state.errorMessage, color: Colors.red);
         } else if (state is RegisterSuccess) {
           clearController();
           showSnackBar(
             context,
-            "Account created successfully. Please sign in.",
-            Colors.green
+            message: "Account created successfully. Please sign in.",
+            color: Colors.green
           );
           GoRouter.of(context).pushReplacement(AppRouter.kSignInView);
         }

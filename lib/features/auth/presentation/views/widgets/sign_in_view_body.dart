@@ -22,10 +22,10 @@ class SignInViewBody extends StatelessWidget {
     return BlocConsumer<LoginCubit, LoginState>(
       listener: (context, state) {
         if (state is LoginFailure) {
-          showSnackBar(context, state.errorMessage, Colors.red);
+          showSnackBar(context, message: state.errorMessage, color: Colors.red);
         } else if (state is LoginSuccess) {
           clearControllers();
-          showSnackBar(context, "Login success", Colors.green);
+          showSnackBar(context, message: "Login success", color: Colors.green);
           GoRouter.of(context).pushReplacement(AppRouter.kHomeView);
         }
       },
