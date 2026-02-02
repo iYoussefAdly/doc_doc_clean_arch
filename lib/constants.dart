@@ -9,3 +9,4 @@ const kRegisterEndPoint = "/auth/register";
 const tokenKey = 'ACCESS_TOKEN';
 const kEmail = "Email";
 const kStarColor = Color(0xffF5CE00);
+const kIsLoggedIn = "isLoggedIn";
