@@ -2,12 +2,10 @@ import 'package:doc_doc_clean_arch/features/home/presentation/views/widgets/home
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
-  const HomeView({super.key});
-
+  const HomeView({super.key, required this.name});
+  final String name;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: HomeViewBody(),
-    );
+    return Scaffold(body: HomeViewBody(name: name));
   }
 }

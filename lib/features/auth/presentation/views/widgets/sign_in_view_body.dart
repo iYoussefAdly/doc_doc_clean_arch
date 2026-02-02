@@ -12,7 +12,6 @@ import 'package:doc_doc_clean_arch/features/auth/presentation/views/widgets/reme
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-
 class SignInViewBody extends StatelessWidget {
   SignInViewBody({super.key});
   final TextEditingController emailController = TextEditingController();
@@ -26,7 +25,9 @@ class SignInViewBody extends StatelessWidget {
         } else if (state is LoginSuccess) {
           clearControllers();
           showSnackBar(context, message: "Login success", color: Colors.green);
-          GoRouter.of(context).pushReplacement(AppRouter.kHomeView);
+          GoRouter.of(
+            context,
+          ).pushReplacement(AppRouter.kHomeView, extra: state.user.name);
         }
       },
       builder: (context, state) {

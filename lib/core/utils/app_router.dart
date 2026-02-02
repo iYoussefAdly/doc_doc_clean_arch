@@ -23,7 +23,13 @@ abstract class AppRouter {
       ),
       GoRoute(path: kSignInView, builder: (context, state) => SignInView()),
       GoRoute(path: kSignUpView, builder: (context, state) => SignUpView()),
-      GoRoute(path: kHomeView, builder: (context, state) => HomeView()),
+      GoRoute(
+        path: kHomeView,
+        builder: (context, state) {
+          final name = state.extra as String;
+          return HomeView(name: name);
+        },
+      ),
     ],
   );
 }

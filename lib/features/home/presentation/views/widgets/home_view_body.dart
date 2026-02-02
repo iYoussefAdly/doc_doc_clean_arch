@@ -7,7 +7,8 @@ import 'package:doc_doc_clean_arch/features/home/presentation/views/widgets/reco
 import 'package:flutter/material.dart';
 
 class HomeViewBody extends StatelessWidget {
-  const HomeViewBody({super.key});
+  const HomeViewBody({super.key, required this.name});
+  final String name;
   static List<CategoryModel> categories = [
     CategoryModel(image: AssetData.first, title: "General"),
     CategoryModel(image: AssetData.second, title: "Neurologic"),
@@ -20,14 +21,10 @@ class HomeViewBody extends StatelessWidget {
       slivers: [
         SliverToBoxAdapter(
           child: Padding(
-            padding: const EdgeInsets.only(
-              top: 40,
-              left: 16,
-              right: 16,
-            ),
+            padding: const EdgeInsets.only(top: 40, left: 16, right: 16),
             child: Column(
               children: [
-                HomeIntro(),
+                HomeIntro(name: name),
                 SizedBox(height: 16),
                 CustomFindNearby(),
                 SizedBox(height: 24),
@@ -37,10 +34,12 @@ class HomeViewBody extends StatelessWidget {
             ),
           ),
         ),
-        SliverFillRemaining(child: Padding(
-          padding: const EdgeInsets.only(left: 16,right: 16),
-          child: RecomendationSection(),
-        )),
+        SliverFillRemaining(
+          child: Padding(
+            padding: const EdgeInsets.only(left: 16, right: 16),
+            child: RecomendationSection(),
+          ),
+        ),
       ],
     );
   }

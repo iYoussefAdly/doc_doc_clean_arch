@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
-import 'package:doc_doc_clean_arch/core/utils/functions/save_and_get_user.dart';
+import 'package:doc_doc_clean_arch/core/utils/functions/checkUserLoggedIn.dart';
+import 'package:doc_doc_clean_arch/core/utils/functions/save_and_get_user_name.dart';
 import 'package:doc_doc_clean_arch/features/auth/domain/entities/user_entity.dart';
 import 'package:doc_doc_clean_arch/features/auth/domain/use_cases/login_use_case.dart';
 import 'package:doc_doc_clean_arch/features/auth/domain/use_cases/params/login_params.dart';
@@ -17,6 +18,7 @@ class LoginCubit extends Cubit<LoginState> {
       final user = await loginUseCase.call(params);
       emit(LoginSuccess(user: user));
       checkUserisLoggedIn(true);
+      saveUserName(name:user.name!);
     } on DioException catch (e) {
       emit(LoginFailure(errorMessage: e.toString()));
     }
