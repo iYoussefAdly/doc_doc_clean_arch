@@ -20,8 +20,9 @@ abstract class AssetData {
   static const String rectangle1 = "assets/images/home_images/rectangle1.png";
   static const String rectangle2 = "assets/images/home_images/rectangle2.png";
   static const String nearByImage = "assets/images/home_images/Image.png";
-  static const String first="assets/images/home_images/1.png";
-  static const String second="assets/images/home_images/2.png";
-  static const String third="assets/images/home_images/3.png";
-  static const String fourth="assets/images/home_images/4.png";
+  static const String first = "assets/images/home_images/1.png";
+  static const String second = "assets/images/home_images/2.png";
+  static const String third = "assets/images/home_images/3.png";
+  static const String fourth = "assets/images/home_images/4.png";
+  static const String doctor2 = "assets/images/home_images/doctor2.png";
 }

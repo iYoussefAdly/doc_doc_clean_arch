@@ -3,6 +3,7 @@ import 'package:doc_doc_clean_arch/features/home/data/models/category_model.dart
 import 'package:doc_doc_clean_arch/features/home/presentation/views/widgets/custom_find_nearby.dart';
 import 'package:doc_doc_clean_arch/features/home/presentation/views/widgets/doctor_speciality_section.dart';
 import 'package:doc_doc_clean_arch/features/home/presentation/views/widgets/home_intro.dart';
+import 'package:doc_doc_clean_arch/features/home/presentation/views/widgets/recomendation_section.dart';
 import 'package:flutter/material.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -15,17 +16,32 @@ class HomeViewBody extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 40, left: 16, right: 16, bottom: 10),
-      child: Column(
-        children: [
-          HomeIntro(),
-          SizedBox(height: 16),
-          CustomFindNearby(),
-          SizedBox(height: 24),
-          DoctorSpecialitySection(categories: categories),
-        ],
-      ),
+    return CustomScrollView(
+      slivers: [
+        SliverToBoxAdapter(
+          child: Padding(
+            padding: const EdgeInsets.only(
+              top: 40,
+              left: 16,
+              right: 16,
+            ),
+            child: Column(
+              children: [
+                HomeIntro(),
+                SizedBox(height: 16),
+                CustomFindNearby(),
+                SizedBox(height: 24),
+                DoctorSpecialitySection(categories: categories),
+                SizedBox(height: 23),
+              ],
+            ),
+          ),
+        ),
+        SliverFillRemaining(child: Padding(
+          padding: const EdgeInsets.only(left: 16,right: 16),
+          child: RecomendationSection(),
+        )),
+      ],
     );
   }
 }
