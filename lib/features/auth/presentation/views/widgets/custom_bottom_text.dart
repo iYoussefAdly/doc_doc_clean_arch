@@ -51,7 +51,7 @@ class CustomBottomText extends StatelessWidget {
         ),
         SizedBox(height: 24),
         GestureDetector(
-          onTap:onTap,
+          onTap: onTap,
           child: RichText(
             text: TextSpan(
               children: [

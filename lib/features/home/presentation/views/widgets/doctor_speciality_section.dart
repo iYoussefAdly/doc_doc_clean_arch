@@ -5,10 +5,7 @@ import 'package:doc_doc_clean_arch/features/home/presentation/views/widgets/cate
 import 'package:flutter/material.dart';
 
 class DoctorSpecialitySection extends StatelessWidget {
-  const DoctorSpecialitySection({
-    super.key,
-    required this.categories,
-  });
+  const DoctorSpecialitySection({super.key, required this.categories});
 
   final List<CategoryModel> categories;
 
@@ -23,9 +20,7 @@ class DoctorSpecialitySection extends StatelessWidget {
             Spacer(),
             Text(
               "See all",
-              style: Styles.styleRegular12.copyWith(
-                color: kTextPrimaryColor,
-              ),
+              style: Styles.styleRegular12.copyWith(color: kTextPrimaryColor),
             ),
           ],
         ),

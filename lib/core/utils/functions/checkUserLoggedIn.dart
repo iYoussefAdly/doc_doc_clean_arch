@@ -5,6 +5,7 @@ Future<void> checkUserisLoggedIn(bool value) async {
   final SharedPreferences prefs = await SharedPreferences.getInstance();
   prefs.setBool(kIsLoggedIn, value);
 }
+
 Future<bool> getUserIsLoggedIn() async {
   final prefs = await SharedPreferences.getInstance();
   return prefs.getBool(kIsLoggedIn) ?? false;

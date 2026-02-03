@@ -12,8 +12,8 @@ class RegisterCubit extends Cubit<RegisterState> {
   Future<void> register(RegisterParams params) async {
     emit(RegisterLoading());
     try {
-    UserEntity user=  await registerUseCase.call(params);
-      emit(RegisterSuccess(user:user));
+      UserEntity user = await registerUseCase.call(params);
+      emit(RegisterSuccess(user: user));
     } catch (e) {
       emit(RegisterFailure(errorMessage: e.toString()));
     }

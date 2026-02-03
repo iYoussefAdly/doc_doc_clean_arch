@@ -34,10 +34,7 @@ class CustomButtonWidget extends StatelessWidget {
                     strokeWidth: 2,
                   ),
                 )
-              : Text(
-                  buttonName,
-                  style: Styles.styleSemiBold16,
-                ),
+              : Text(buttonName, style: Styles.styleSemiBold16),
         ),
       ),
     );

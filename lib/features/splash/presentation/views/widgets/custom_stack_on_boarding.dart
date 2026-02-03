@@ -13,10 +13,7 @@ class CustomStackOnBoarding extends StatelessWidget {
       children: [
         CoverWidget(),
         CustomOnBoardingImage(),
-        Positioned(
-          left:65,
-          top: 420,
-          child: CustomOnBoardingText())
+        Positioned(left: 65, top: 420, child: CustomOnBoardingText()),
       ],
     );
   }

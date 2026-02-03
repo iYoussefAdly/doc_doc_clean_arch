@@ -10,11 +10,9 @@ class AuthImages extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Image.asset(AssetData.googleImage),
-        SizedBox(width: 32,),
+        SizedBox(width: 32),
         Image.asset(AssetData.faceBookImage),
-        SizedBox(
-          width: 32,
-        ),
+        SizedBox(width: 32),
         Image.asset(AssetData.appleImage),
       ],
     );

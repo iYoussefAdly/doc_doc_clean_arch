@@ -13,7 +13,7 @@ class DoctorItemView extends StatelessWidget {
           padding: const EdgeInsets.only(bottom: 16),
           child: DoctorItem(),
         );
-      }
+      },
     );
   }
 }

@@ -10,6 +10,6 @@ class LoginUseCase extends UseCase<UserEntity, LoginParams> {
   @override
   Future<UserEntity> call(LoginParams params) {
     //check user permissions
-   return authRepo.login(params);
+    return authRepo.login(params);
   }
 }

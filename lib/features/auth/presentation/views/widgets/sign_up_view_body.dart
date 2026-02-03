@@ -34,7 +34,7 @@ class SignUpViewBody extends StatelessWidget {
           showSnackBar(
             context,
             message: "Account created successfully. Please sign in.",
-            color: Colors.green
+            color: Colors.green,
           );
           GoRouter.of(context).pushReplacement(AppRouter.kSignInView);
         }

@@ -3,9 +3,7 @@ import 'package:doc_doc_clean_arch/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class CustomNearByContainer extends StatelessWidget {
-  const CustomNearByContainer({
-    super.key,
-  });
+  const CustomNearByContainer({super.key});
 
   @override
   Widget build(BuildContext context) {

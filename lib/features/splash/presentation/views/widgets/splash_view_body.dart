@@ -11,19 +11,21 @@ class SplashViewBody extends StatefulWidget {
   @override
   State<SplashViewBody> createState() => _SplashViewBodyState();
 }
+
 class _SplashViewBodyState extends State<SplashViewBody> {
   @override
   void initState() {
     super.initState();
     _navigate();
   }
+
   Future<void> _navigate() async {
     final isLoggedIn = await getUserIsLoggedIn();
     await Future.delayed(const Duration(seconds: 3));
     if (!mounted) return;
     if (isLoggedIn) {
-      final name =await getUserName()??"";
-      context.go(AppRouter.kHomeView,extra: name);
+      final name = await getUserName() ?? "";
+      context.go(AppRouter.kHomeView, extra: name);
     } else {
       context.go(AppRouter.kOnBoardingView);
     }

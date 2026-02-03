@@ -2,9 +2,7 @@ import 'package:doc_doc_clean_arch/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class CustomOnBoardingDetailsText extends StatelessWidget {
-  const CustomOnBoardingDetailsText({
-    super.key,
-  });
+  const CustomOnBoardingDetailsText({super.key});
 
   @override
   Widget build(BuildContext context) {

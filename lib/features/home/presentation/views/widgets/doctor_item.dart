@@ -3,20 +3,12 @@ import 'package:doc_doc_clean_arch/features/home/presentation/views/widgets/doct
 import 'package:flutter/material.dart';
 
 class DoctorItem extends StatelessWidget {
-  const DoctorItem({
-    super.key,
-  });
+  const DoctorItem({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Row(
-      children: [
-        CustomDoctorImage(),
-        SizedBox(
-          width: 16,
-        ),
-        DoctorDetails()
-      ],
+      children: [CustomDoctorImage(), SizedBox(width: 16), DoctorDetails()],
     );
   }
 }

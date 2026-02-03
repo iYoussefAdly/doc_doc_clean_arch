@@ -27,8 +27,14 @@ class _CustomTextFieldState extends State<CustomTextField> {
       obscureText: widget.isObscured,
       controller: widget.controller,
       decoration: InputDecoration(
-        enabledBorder: buildBorder(borderRadius: 12, borderColor: kBorderAndHintTextColor),
-        focusedBorder: buildBorder(borderRadius: 12, borderColor: kTextPrimaryColor),
+        enabledBorder: buildBorder(
+          borderRadius: 12,
+          borderColor: kBorderAndHintTextColor,
+        ),
+        focusedBorder: buildBorder(
+          borderRadius: 12,
+          borderColor: kTextPrimaryColor,
+        ),
         fillColor: Color(0xffF5F5F7),
         filled: true,
         suffixIcon: widget.isItPassword
@@ -49,6 +55,4 @@ class _CustomTextFieldState extends State<CustomTextField> {
       ),
     );
   }
-
-  
 }

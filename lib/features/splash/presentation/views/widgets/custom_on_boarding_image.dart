@@ -2,9 +2,7 @@ import 'package:doc_doc_clean_arch/core/utils/asset_data.dart';
 import 'package:flutter/material.dart';
 
 class CustomOnBoardingImage extends StatelessWidget {
-  const CustomOnBoardingImage({
-    super.key,
-  });
+  const CustomOnBoardingImage({super.key});
   @override
   Widget build(BuildContext context) {
     return ShaderMask(

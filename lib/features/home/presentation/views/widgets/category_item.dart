@@ -16,10 +16,13 @@ class CategoryItem extends StatelessWidget {
             shape: BoxShape.circle,
             color: Color(kCategoryItemColor),
           ),
-          child: Center(child: SizedBox(
-            height: 24,
-            width: 24,
-            child: Image.asset(categoryModel.image,fit: BoxFit.fill,))),
+          child: Center(
+            child: SizedBox(
+              height: 24,
+              width: 24,
+              child: Image.asset(categoryModel.image, fit: BoxFit.fill),
+            ),
+          ),
         ),
         SizedBox(height: 12),
         Text(categoryModel.title, style: Styles.styleRegular12),

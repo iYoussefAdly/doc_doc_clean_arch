@@ -10,12 +10,14 @@ class RememberMeAndForgetPassWidget extends StatelessWidget {
     return Row(
       children: [
         CheckContainer(),
-        SizedBox(
-          width:6,
-        ),
-        Text("Remeber me",style: Styles.styleRegular12,),
+        SizedBox(width: 6),
+        Text("Remeber me", style: Styles.styleRegular12),
         Spacer(),
-        Text("Forget password",style: Styles.styleRegular12.copyWith(color: kTextPrimaryColor),)
-        ]);
+        Text(
+          "Forget password",
+          style: Styles.styleRegular12.copyWith(color: kTextPrimaryColor),
+        ),
+      ],
+    );
   }
 }

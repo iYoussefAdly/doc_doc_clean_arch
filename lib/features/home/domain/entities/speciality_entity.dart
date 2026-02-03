@@ -3,9 +3,5 @@ class SpecialtyEntity {
   final String name;
   final String icon;
 
-  SpecialtyEntity({
-    required this.id,
-    required this.name,
-    required this.icon,
-  });
+  SpecialtyEntity({required this.id, required this.name, required this.icon});
 }

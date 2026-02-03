@@ -2,9 +2,7 @@ import 'package:doc_doc_clean_arch/core/utils/asset_data.dart';
 import 'package:flutter/material.dart';
 
 class CustomNotification extends StatelessWidget {
-  const CustomNotification({
-    super.key,
-  });
+  const CustomNotification({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,11 +21,11 @@ class CustomNotification extends StatelessWidget {
               height: 8,
               width: 8,
               decoration: BoxDecoration(
-                 color: Color(0xffFA4B5C),
-                shape: BoxShape.circle
+                color: Color(0xffFA4B5C),
+                shape: BoxShape.circle,
               ),
             ),
-          )
+          ),
         ],
       ),
     );

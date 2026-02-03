@@ -18,7 +18,7 @@ class LoginCubit extends Cubit<LoginState> {
       final user = await loginUseCase.call(params);
       emit(LoginSuccess(user: user));
       checkUserisLoggedIn(true);
-      saveUserName(name:user.name!);
+      saveUserName(name: user.name!);
     } on DioException catch (e) {
       emit(LoginFailure(errorMessage: e.toString()));
     }

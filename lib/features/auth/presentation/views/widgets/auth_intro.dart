@@ -12,7 +12,7 @@ class AuthIntro extends StatelessWidget {
       children: [
         Text(text1, style: Styles.styleBold24),
         SizedBox(height: 8),
-        Text(text2,style: Styles.styleRegular14,),
+        Text(text2, style: Styles.styleRegular14),
       ],
     );
   }

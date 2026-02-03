@@ -9,12 +9,7 @@ class UserModel extends UserEntity {
     String? phone,
     String? gender,
     required this.token,
-  }) : super(
-          name: name,
-          email: email,
-          phone: phone,
-          gender: gender,
-        );
+  }) : super(name: name, email: email, phone: phone, gender: gender);
   factory UserModel.fromJson(
     Map<String, dynamic> json, {
     required String email,
