@@ -1,17 +1,15 @@
 class DoctorEntity {
-  final String id;
+  final int id;
   final String name;
   final String specialty;
-  final num rating;
-  final num reviewsCount;
+  final String degree;
   final String imageUrl;
 
   DoctorEntity({
     required this.id,
     required this.name,
     required this.specialty,
-    required this.rating,
-    required this.reviewsCount,
+    required this.degree,
     required this.imageUrl,
   });
 }

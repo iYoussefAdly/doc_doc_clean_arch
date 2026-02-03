@@ -1,16 +1,15 @@
+import 'package:doc_doc_clean_arch/features/home/domain/entities/doctor_entity.dart';
+
 import 'city.dart';
 import 'specialization.dart';
 
-class DoctorModel {
-  int? id;
-  String? name;
+class DoctorModel extends DoctorEntity {
   String? email;
   String? phone;
   String? photo;
   String? gender;
   String? address;
   String? description;
-  String? degree;
   Specialization? specialization;
   City? city;
   int? appointPrice;
@@ -18,32 +17,38 @@ class DoctorModel {
   String? endTime;
 
   DoctorModel({
-    this.id,
-    this.name,
+    required int id,
+    required String name,
     this.email,
     this.phone,
     this.photo,
     this.gender,
     this.address,
     this.description,
-    this.degree,
+    required String degree,
     this.specialization,
     this.city,
     this.appointPrice,
     this.startTime,
     this.endTime,
-  });
+  }) : super(
+          id: id,
+          name: name,
+          specialty: specialization?.name ?? '',
+          degree: degree,
+          imageUrl: photo ?? '',
+        );
 
   factory DoctorModel.fromJson(Map<String, dynamic> json) => DoctorModel(
-    id: json['id'] as int?,
-    name: json['name'] as String?,
+    id: json['id'] as int? ?? 0,
+    name: json['name'] as String? ?? '',
     email: json['email'] as String?,
     phone: json['phone'] as String?,
     photo: json['photo'] as String?,
     gender: json['gender'] as String?,
     address: json['address'] as String?,
     description: json['description'] as String?,
-    degree: json['degree'] as String?,
+    degree: json['degree'] as String? ?? '',
     specialization: json['specialization'] == null
         ? null
         : Specialization.fromJson(
