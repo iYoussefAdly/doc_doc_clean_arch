@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 const kTextPrimaryColor = Color(0xff2379F8);
 const kTextSecondaryColor = Color(0xff727272);
 const kBorderAndHintTextColor = Color(0xffBFBFBF);
@@ -12,3 +11,4 @@ const kStarColor = Color(0xffF5CE00);
 const kIsLoggedIn = "isLoggedIn";
 const kUserName = "userName";
 const kGetDoctorsEndPoint = "/doctor/index";
+const kCachedDoctors = 'CACHED_DOCTORS';
