@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:doc_doc_clean_arch/constants.dart';
-import 'package:doc_doc_clean_arch/features/home/data/models/data_sources/home_local_data_source/home_local_data_source.dart';
+import 'package:doc_doc_clean_arch/features/home/data/data_sources/home_local_data_source/home_local_data_source.dart';
 import 'package:doc_doc_clean_arch/features/home/data/models/doctor_model/doctor_model.dart';
 import 'package:doc_doc_clean_arch/features/home/domain/entities/doctor_entity.dart';
 import 'package:shared_preferences/shared_preferences.dart';
