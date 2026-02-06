@@ -1,0 +1,29 @@
+import 'package:doc_doc_clean_arch/constants.dart';
+import 'package:doc_doc_clean_arch/core/utils/api_services.dart';
+import 'package:doc_doc_clean_arch/features/auth/data/data_sources/auth_local_data_souce/auth_local_data_source.dart';
+import 'package:doc_doc_clean_arch/features/home/data/models/data_sources/home_remote_data_source/home_remote_data_source.dart';
+import 'package:doc_doc_clean_arch/features/home/data/models/doctor_model/doctor_model.dart';
+import 'package:doc_doc_clean_arch/features/home/domain/entities/doctor_entity.dart';
+
+class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
+  final ApiServices apiServices;
+  final AuthLocalDataSource authLocalDataSource;
+  HomeRemoteDataSourceImpl(
+    this.authLocalDataSource, {
+    required this.apiServices,
+  });
+  @override
+  Future<List<DoctorEntity>> getDoctors() async {
+    final token =await authLocalDataSource.getToken();
+    final response = await apiServices.get(endPoint: kGetDoctorsEndPoint,token:token);
+    List<DoctorEntity> doctors = getDoctorsList(response);
+    return doctors;
+  }
+  List<DoctorEntity> getDoctorsList(Map<String, dynamic> response) {
+    final List<DoctorEntity> doctors = [];
+    for (var doctor in response["data"]) {
+      doctors.add(DoctorModel.fromJson(doctor));
+    }
+    return doctors;
+  }
+}

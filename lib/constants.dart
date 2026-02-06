@@ -11,3 +11,4 @@ const kEmail = "Email";
 const kStarColor = Color(0xffF5CE00);
 const kIsLoggedIn = "isLoggedIn";
 const kUserName = "userName";
+const kGetDoctorsEndPoint = "/doctor/index";

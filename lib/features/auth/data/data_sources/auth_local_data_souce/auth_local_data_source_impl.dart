@@ -9,12 +9,10 @@ class AuthLocalDataSourceImpl implements AuthLocalDataSource {
   Future<void> saveToken(String token) async {
     await sharedPreferences.setString(tokenKey, token);
   }
-
   @override
   Future<String?> getToken() async {
     return sharedPreferences.getString(tokenKey);
   }
-
   @override
   Future<void> clearToken() async {
     await sharedPreferences.remove(tokenKey);
