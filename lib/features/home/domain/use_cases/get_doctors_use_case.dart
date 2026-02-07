@@ -5,12 +5,14 @@ import 'package:doc_doc_clean_arch/features/home/domain/entities/doctor_entity.d
 import 'package:doc_doc_clean_arch/features/home/domain/repos/home_repo.dart';
 
 class GetDoctorsUseCase
-    extends UseCase<Either<Failure, List<DoctorEntity>>, void> {
+    extends UseCase<Either<Failure, List<DoctorEntity>>, NoParam> {
   final HomeRepo homeRepo;
   GetDoctorsUseCase({required this.homeRepo});
   @override
-  Future<Either<Failure, List<DoctorEntity>>> call(void params) {
+  Future<Either<Failure, List<DoctorEntity>>> call(NoParam params) {
     //check user permission
     return homeRepo.getDoctors();
   }
 }
+
+class NoParam{}
