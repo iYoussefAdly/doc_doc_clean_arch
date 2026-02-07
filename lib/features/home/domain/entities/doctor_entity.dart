@@ -3,7 +3,7 @@ class DoctorEntity {
   final String name;
   final String specialty;
   final String degree;
-  final String imageUrl;
+  final String? imageUrl;
 
   DoctorEntity({
     required this.id,

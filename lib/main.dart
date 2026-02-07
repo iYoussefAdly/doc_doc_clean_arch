@@ -1,5 +1,5 @@
 import 'package:doc_doc_clean_arch/core/utils/app_router.dart';
-import 'package:doc_doc_clean_arch/core/utils/functions/setub_servie_locator.dart';
+import 'package:doc_doc_clean_arch/core/utils/functions/setub_service_locator.dart';
 import 'package:doc_doc_clean_arch/core/utils/simple_bloc_observer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,7 +8,7 @@ import 'package:google_fonts/google_fonts.dart';
 void main() async {
   Bloc.observer = SimpleBlocObserver();
   WidgetsFlutterBinding.ensureInitialized();
-  await saveServiceLocator();
+  await initServiceLocator();
   runApp(const DocDocCleanArch());
 }
 

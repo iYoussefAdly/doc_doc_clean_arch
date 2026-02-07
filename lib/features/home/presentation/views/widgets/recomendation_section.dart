@@ -1,8 +1,7 @@
 import 'package:doc_doc_clean_arch/constants.dart';
 import 'package:doc_doc_clean_arch/core/utils/styles.dart';
-import 'package:doc_doc_clean_arch/features/home/presentation/views/widgets/doctor_item_view.dart';
+import 'package:doc_doc_clean_arch/features/home/presentation/views/widgets/doctor_item_view_builder.dart';
 import 'package:flutter/material.dart';
-
 class RecomendationSection extends StatelessWidget {
   const RecomendationSection({super.key});
   @override
@@ -23,7 +22,7 @@ class RecomendationSection extends StatelessWidget {
         Expanded(
           child: Padding(
             padding: const EdgeInsets.only(bottom: 16),
-            child: DoctorItemView(),
+            child: DoctorItemViewBuilder(),
           ),
         ),
       ],
