@@ -21,7 +21,19 @@ class AuthRepoImpl implements AuthRepo {
     final UserModel userModel = await remoteDataSource.register(params);
     return _mapToEntity(userModel);
   }
-
+  @override
+  Future<void> logout() async {
+    try {
+      await remoteDataSource.logOut();
+    } catch (e) {
+      // Even if remote logout fails, clear local data to ensure user can logout
+      // This handles cases where server is unreachable or returns an error
+    } finally {
+      // Always clear local data regardless of remote call success/failure
+      await localDataSource.logout();
+    }
+  }
+}
   UserEntity _mapToEntity(UserModel model) {
     return UserEntity(
       name: model.name,
@@ -30,4 +42,3 @@ class AuthRepoImpl implements AuthRepo {
       gender: model.gender,
     );
   }
-}

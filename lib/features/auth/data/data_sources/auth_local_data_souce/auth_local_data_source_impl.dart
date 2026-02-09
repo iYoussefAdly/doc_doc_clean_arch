@@ -17,4 +17,10 @@ class AuthLocalDataSourceImpl implements AuthLocalDataSource {
   Future<void> clearToken() async {
     await sharedPreferences.remove(tokenKey);
   }
+  @override
+Future<void> logout() async {
+  await clearToken();
+  await sharedPreferences.remove(kIsLoggedIn);
+  await sharedPreferences.remove(kUserName);
+}
 }

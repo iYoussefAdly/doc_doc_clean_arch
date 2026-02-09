@@ -64,4 +64,19 @@ class AuthRemoteDataSourceImpl extends AuthRemoteDataSource {
       throw Exception('Register failed: $e');
     }
   }
+
+  @override
+  Future<void> logOut() async {
+    try {
+      final token = await localDataSource.getToken();
+      await apiServices.post(
+        endPoint: kLogOutEndPoint,
+        token: token,
+      );
+    } catch (e) {
+      // Even if logout API call fails, we should still clear local data
+      // This ensures user can logout even if server is unreachable
+      throw Exception('Logout failed: $e');
+    }
+  }
 }

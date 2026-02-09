@@ -5,4 +5,5 @@ import 'package:doc_doc_clean_arch/features/auth/domain/use_cases/params/registe
 abstract class AuthRepo {
   Future<UserEntity> login(LoginParams params);
   Future<UserEntity> register(RegisterParams params);
+  Future<void> logout();
 }

@@ -5,4 +5,5 @@ import 'package:doc_doc_clean_arch/features/auth/domain/use_cases/params/registe
 abstract class AuthRemoteDataSource {
   Future<UserModel> login(LoginParams params);
   Future<UserModel> register(RegisterParams params);
+  Future<void> logOut();
 }

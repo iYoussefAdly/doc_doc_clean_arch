@@ -10,7 +10,16 @@ class CustomDoctorImage extends StatelessWidget {
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
       width: 110,
       height: 120,
-      child: Image.asset(image??AssetData.doctor2, fit: BoxFit.fill),
+      clipBehavior: Clip.antiAlias,
+      child: image != null && image!.startsWith('http')
+          ? Image.network(
+              image!,
+              fit: BoxFit.fill,
+              errorBuilder: (context, error, stackTrace) {
+                return Image.asset(AssetData.doctor2, fit: BoxFit.fill);
+              },
+            )
+          : Image.asset(AssetData.doctor2, fit: BoxFit.fill),
     );
   }
 }
