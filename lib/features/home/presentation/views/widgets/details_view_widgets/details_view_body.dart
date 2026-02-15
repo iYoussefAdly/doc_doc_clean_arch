@@ -1,11 +1,21 @@
-import 'package:doc_doc_clean_arch/core/widgets/custom_app_bar.dart';
+import 'package:doc_doc_clean_arch/features/home/presentation/views/widgets/details_view_widgets/app_bar_section.dart';
+import 'package:doc_doc_clean_arch/features/home/presentation/views/widgets/details_view_widgets/details_section.dart';
 import 'package:flutter/material.dart';
-
 class DetailsViewBody extends StatelessWidget {
   const DetailsViewBody({super.key});
-
   @override
   Widget build(BuildContext context) {
-    return CustomAppBar(icon: IconButton(onPressed: onPressed, icon: icon),) ;
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 23),
+      child: Column(
+        children: [
+          AppBarSection(),
+          SizedBox(
+            height: 32,
+          ),
+          DetailsSection()
+        ]
+        ),
+    );
   }
 }

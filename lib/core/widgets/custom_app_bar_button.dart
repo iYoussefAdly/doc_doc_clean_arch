@@ -8,7 +8,7 @@ class CustomAppBarButton extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: kTextSecondaryColor),
+        border: Border.all(color: kBorderColor),
       ),
       width: 40,
       height: 40,

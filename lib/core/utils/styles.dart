@@ -37,6 +37,11 @@ abstract class Styles {
     fontWeight: FontWeight.w500,
     color: kBorderAndHintTextColor,
   );
+  static const styleBold14 = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w700,
+    color: kBorderAndHintTextColor,
+  );
   static const styleMedium18 = TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.w500,
