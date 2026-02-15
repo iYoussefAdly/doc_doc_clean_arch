@@ -74,8 +74,6 @@ class AuthRemoteDataSourceImpl extends AuthRemoteDataSource {
         token: token,
       );
     } catch (e) {
-      // Even if logout API call fails, we should still clear local data
-      // This ensures user can logout even if server is unreachable
       throw Exception('Logout failed: $e');
     }
   }

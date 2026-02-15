@@ -1,5 +1,5 @@
 import 'package:doc_doc_clean_arch/core/utils/asset_data.dart';
-import 'package:doc_doc_clean_arch/features/home/presentation/views/widgets/custom_near_by_container.dart';
+import 'package:doc_doc_clean_arch/features/home/presentation/views/widgets/home_view_widgets/custom_near_by_container.dart';
 import 'package:flutter/material.dart';
 
 class CustomFindNearby extends StatelessWidget {

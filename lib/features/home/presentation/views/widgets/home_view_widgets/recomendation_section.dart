@@ -1,6 +1,6 @@
 import 'package:doc_doc_clean_arch/constants.dart';
 import 'package:doc_doc_clean_arch/core/utils/styles.dart';
-import 'package:doc_doc_clean_arch/features/home/presentation/views/widgets/doctor_item_view_builder.dart';
+import 'package:doc_doc_clean_arch/features/home/presentation/views/widgets/home_view_widgets/doctor_item_view_builder.dart';
 import 'package:flutter/material.dart';
 class RecomendationSection extends StatelessWidget {
   const RecomendationSection({super.key});

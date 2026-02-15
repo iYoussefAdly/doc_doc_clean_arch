@@ -1,11 +1,13 @@
 import 'package:doc_doc_clean_arch/features/auth/presentation/views/sign_in_view.dart';
 import 'package:doc_doc_clean_arch/features/auth/presentation/views/sign_up_view.dart';
+import 'package:doc_doc_clean_arch/features/home/presentation/views/details_view.dart';
 import 'package:doc_doc_clean_arch/features/home/presentation/views/home_view.dart';
 import 'package:doc_doc_clean_arch/features/splash/presentation/views/on_boarding_view.dart';
 import 'package:doc_doc_clean_arch/features/splash/presentation/views/splash_view.dart';
 import 'package:go_router/go_router.dart';
 
 abstract class AppRouter {
+  static const kDetailsView = "/DetailsView";
   static const kOnBoardingView = "/OnBoardingView";
   static const kSignInView = "/SignInView";
   static const kSignUpView = "/SignUpView";
@@ -30,6 +32,7 @@ abstract class AppRouter {
           return HomeView(name: name);
         },
       ),
+      GoRoute(path: kDetailsView, builder: (context, state) => DetailsView()),
     ],
   );
 }

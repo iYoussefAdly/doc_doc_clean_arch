@@ -3,8 +3,8 @@ import 'package:doc_doc_clean_arch/core/utils/styles.dart';
 import 'package:doc_doc_clean_arch/features/auth/domain/repos/auth_repo.dart';
 import 'package:doc_doc_clean_arch/features/auth/domain/use_cases/logout_use_case.dart';
 import 'package:doc_doc_clean_arch/features/auth/presentation/manager/Logout_cubit/logout_cubit.dart';
-import 'package:doc_doc_clean_arch/features/home/presentation/views/widgets/custom_notification.dart';
-import 'package:doc_doc_clean_arch/features/home/presentation/views/widgets/log_out_widget.dart';
+import 'package:doc_doc_clean_arch/features/home/presentation/views/widgets/home_view_widgets/custom_notification.dart';
+import 'package:doc_doc_clean_arch/features/home/presentation/views/widgets/home_view_widgets/log_out_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

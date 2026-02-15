@@ -1,9 +1,9 @@
 import 'package:doc_doc_clean_arch/core/utils/asset_data.dart';
 import 'package:doc_doc_clean_arch/features/home/data/models/category_model.dart';
-import 'package:doc_doc_clean_arch/features/home/presentation/views/widgets/custom_find_nearby.dart';
-import 'package:doc_doc_clean_arch/features/home/presentation/views/widgets/doctor_speciality_section.dart';
-import 'package:doc_doc_clean_arch/features/home/presentation/views/widgets/home_intro.dart';
-import 'package:doc_doc_clean_arch/features/home/presentation/views/widgets/recomendation_section.dart';
+import 'package:doc_doc_clean_arch/features/home/presentation/views/widgets/home_view_widgets/custom_find_nearby.dart';
+import 'package:doc_doc_clean_arch/features/home/presentation/views/widgets/home_view_widgets/doctor_speciality_section.dart';
+import 'package:doc_doc_clean_arch/features/home/presentation/views/widgets/home_view_widgets/home_intro.dart';
+import 'package:doc_doc_clean_arch/features/home/presentation/views/widgets/home_view_widgets/recomendation_section.dart';
 import 'package:flutter/material.dart';
 
 class HomeViewBody extends StatelessWidget {

@@ -1,5 +1,5 @@
 import 'package:doc_doc_clean_arch/features/home/presentation/manager/get_doctors_cubit/get_doctors_cubit.dart';
-import 'package:doc_doc_clean_arch/features/home/presentation/views/widgets/doctor_item_view.dart';
+import 'package:doc_doc_clean_arch/features/home/presentation/views/widgets/home_view_widgets/doctor_item_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
