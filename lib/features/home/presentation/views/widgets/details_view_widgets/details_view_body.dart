@@ -1,8 +1,11 @@
+import 'package:doc_doc_clean_arch/features/home/domain/entities/doctor_entity.dart';
 import 'package:doc_doc_clean_arch/features/home/presentation/views/widgets/details_view_widgets/app_bar_section.dart';
 import 'package:doc_doc_clean_arch/features/home/presentation/views/widgets/details_view_widgets/details_section.dart';
 import 'package:flutter/material.dart';
+
 class DetailsViewBody extends StatelessWidget {
-  const DetailsViewBody({super.key});
+  const DetailsViewBody({super.key, required this.doctor});
+  final DoctorEntity doctor;
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
@@ -13,10 +16,8 @@ class DetailsViewBody extends StatelessWidget {
             child: AppBarSection(),
           ),
         ),
-        SliverToBoxAdapter(
-          child: SizedBox(height: 32),
-        ),
-        DetailsSection(),
+        SliverToBoxAdapter(child: SizedBox(height: 32)),
+        DetailsSection(doctor: doctor,),
       ],
     );
   }

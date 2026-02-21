@@ -8,7 +8,8 @@ import 'package:doc_doc_clean_arch/features/home/presentation/views/widgets/home
 import 'package:flutter/material.dart';
 
 class DetailsSection extends StatefulWidget {
-  const DetailsSection({super.key});
+  const DetailsSection({super.key, required this.doctor});
+  final DoctorEntity doctor;
   @override
   State<DetailsSection> createState() => _DetailsSectionState();
 }
@@ -17,7 +18,7 @@ class _DetailsSectionState extends State<DetailsSection> {
   int selectedIndex = 0;
   Widget _buildBody() {
     final sections = [
-      const AboutSection(),
+      AboutSection(doctor: widget.doctor),
       const LocationSection(),
       const ReviewSection(),
     ];
@@ -29,18 +30,12 @@ class _DetailsSectionState extends State<DetailsSection> {
     return SliverFillRemaining(
       hasScrollBody: false,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             DoctorItem(
-              doctor: DoctorEntity(
-                id: 2,
-                name: "Youssef",
-                specialty: 'General',
-                degree: "RSUD Gatot Subroto",
-                imageUrl: null,
-              ),
+              doctor: widget.doctor,
             ),
             const SizedBox(height: 24),
             TabsRow(
@@ -62,14 +57,9 @@ class _DetailsSectionState extends State<DetailsSection> {
               },
             ),
             const SizedBox(height: 32),
-            Expanded(
-              child: _buildBody(),
-            ),
+            Expanded(child: _buildBody()),
             const SizedBox(height: 24),
-            CustomButtonWidget(
-              buttonName: "Make An Appointment",
-              onTap: () {},
-            ),
+            CustomButtonWidget(buttonName: "Make An Appointment", onTap: () {}),
             const SizedBox(height: 16),
           ],
         ),

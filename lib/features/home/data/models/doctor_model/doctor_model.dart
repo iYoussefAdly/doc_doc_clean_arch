@@ -32,11 +32,15 @@ class DoctorModel extends DoctorEntity {
     this.startTime,
     this.endTime,
   }) : super(
+         description: description ?? "",
+         addresse: address ?? "",
+         workingTime: startTime ?? "",
+         email: email ?? "",
          id: id,
          name: name,
-         specialty: specialization?.name ?? '',
+         specialty: specialization!.name!,
          degree: degree,
-         imageUrl: photo ?? '',
+         imageUrl: phone ?? "",
        );
 
   factory DoctorModel.fromJson(Map<String, dynamic> json) => DoctorModel(
@@ -82,9 +86,13 @@ class DoctorModel extends DoctorEntity {
     return DoctorEntity(
       id: id,
       name: name,
-      specialty:specialization?.name ?? '',
+      specialty: specialization?.name ?? '',
       degree: degree,
       imageUrl: photo ?? '',
+      description: description ?? '',
+      addresse: address ?? '',
+      workingTime: startTime ?? '',
+      email: email ?? '',
     );
   }
 }

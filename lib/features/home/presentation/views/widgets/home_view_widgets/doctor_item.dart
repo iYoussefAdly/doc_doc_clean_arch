@@ -11,7 +11,7 @@ class DoctorItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap:() => GoRouter.of(context).push(AppRouter.kDetailsView),
+      onTap:() => GoRouter.of(context).push(AppRouter.kDetailsView,extra: doctor),
       child: Row(
         children: [
           CustomDoctorImage(image: doctor.imageUrl),
