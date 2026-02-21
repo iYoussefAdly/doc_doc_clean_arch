@@ -5,17 +5,19 @@ class DetailsViewBody extends StatelessWidget {
   const DetailsViewBody({super.key});
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 23),
-      child: Column(
-        children: [
-          AppBarSection(),
-          SizedBox(
-            height: 32,
+    return CustomScrollView(
+      slivers: [
+        SliverToBoxAdapter(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 23),
+            child: AppBarSection(),
           ),
-          DetailsSection()
-        ]
         ),
+        SliverToBoxAdapter(
+          child: SizedBox(height: 32),
+        ),
+        DetailsSection(),
+      ],
     );
   }
 }

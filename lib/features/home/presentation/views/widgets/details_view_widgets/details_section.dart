@@ -26,63 +26,54 @@ class _DetailsSectionState extends State<DetailsSection> {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      slivers: [
-        SliverToBoxAdapter(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                DoctorItem(
-                  doctor: DoctorEntity(
-                    id: 2,
-                    name: "Youssef",
-                    specialty: 'General',
-                    degree: "RSUD Gatot Subroto",
-                    imageUrl: null,
-                  ),
-                ),
-                const SizedBox(height: 24),
-                TabsRow(
-                  selectedIndex: selectedIndex,
-                  onAboutTap: () {
-                    setState(() {
-                      selectedIndex = 0;
-                    });
-                  },
-                  onLocationTap: () {
-                    setState(() {
-                      selectedIndex = 1;
-                    });
-                  },
-                  onReviewTap: () {
-                    setState(() {
-                      selectedIndex = 2;
-                    });
-                  },
-                ),
-                const SizedBox(height: 32),
-                _buildBody(),
-              ],
+    return SliverFillRemaining(
+      hasScrollBody: false,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            DoctorItem(
+              doctor: DoctorEntity(
+                id: 2,
+                name: "Youssef",
+                specialty: 'General',
+                degree: "RSUD Gatot Subroto",
+                imageUrl: null,
+              ),
             ),
-          ),
-        ),
-        SliverFillRemaining(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8),
-            child: Column(
-              children: [
-                Expanded(child: SizedBox()),
-                CustomButtonWidget(
-                  buttonName: "Make An Appointment",
-                  onTap: () {},
-                ),
-              ],
+            const SizedBox(height: 24),
+            TabsRow(
+              selectedIndex: selectedIndex,
+              onAboutTap: () {
+                setState(() {
+                  selectedIndex = 0;
+                });
+              },
+              onLocationTap: () {
+                setState(() {
+                  selectedIndex = 1;
+                });
+              },
+              onReviewTap: () {
+                setState(() {
+                  selectedIndex = 2;
+                });
+              },
             ),
-          ),
+            const SizedBox(height: 32),
+            Expanded(
+              child: _buildBody(),
+            ),
+            const SizedBox(height: 24),
+            CustomButtonWidget(
+              buttonName: "Make An Appointment",
+              onTap: () {},
+            ),
+            const SizedBox(height: 16),
+          ],
         ),
-      ],
+      ),
     );
   }
 }
