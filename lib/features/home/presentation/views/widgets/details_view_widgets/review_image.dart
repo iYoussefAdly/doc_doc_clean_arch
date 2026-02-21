@@ -1,11 +1,8 @@
 import 'package:doc_doc_clean_arch/core/utils/asset_data.dart';
 import 'package:flutter/material.dart';
-
 class ReviewImage extends StatelessWidget {
-  const ReviewImage({
-    super.key,
-  });
-
+  const ReviewImage({super.key, required this.image});
+  final String? image;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -13,7 +10,7 @@ class ReviewImage extends StatelessWidget {
       width: 40,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        image: DecorationImage(image: AssetImage(AssetData.jacobImage)),
+        image: DecorationImage(image: AssetImage(image??AssetData.defaultUserImage)),
       ),
     );
   }

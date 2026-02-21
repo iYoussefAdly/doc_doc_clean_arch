@@ -27,6 +27,9 @@ abstract class AssetData {
   static const String doctor2 = "assets/images/home_images/doctor2.png";
   static const String map = "assets/images/home_images/Map.png";
   static const String janeImage = "assets/images/home_images/jane_image.png";
-  static const String robertImage = "assets/images/home_images/robert_image.png";
+  static const String robertImage =
+      "assets/images/home_images/robert_image.png";
   static const String jacobImage = "assets/images/home_images/jacob_image.png";
+  static const String defaultUserImage =
+      "assets/images/home_images/default user image.jpg";
 }
