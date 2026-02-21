@@ -1,3 +1,4 @@
+import 'package:doc_doc_clean_arch/core/widgets/custom_button_widget.dart';
 import 'package:doc_doc_clean_arch/features/home/domain/entities/doctor_entity.dart';
 import 'package:doc_doc_clean_arch/features/home/presentation/views/widgets/details_view_widgets/about_section.dart';
 import 'package:doc_doc_clean_arch/features/home/presentation/views/widgets/details_view_widgets/location_section.dart';
@@ -25,45 +26,63 @@ class _DetailsSectionState extends State<DetailsSection> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            DoctorItem(
-              doctor: DoctorEntity(
-                id: 2,
-                name: "Youssef",
-                specialty: 'General',
-                degree: "RSUD Gatot Subroto",
-                imageUrl: null,
-              ),
+    return CustomScrollView(
+      slivers: [
+        SliverToBoxAdapter(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                DoctorItem(
+                  doctor: DoctorEntity(
+                    id: 2,
+                    name: "Youssef",
+                    specialty: 'General',
+                    degree: "RSUD Gatot Subroto",
+                    imageUrl: null,
+                  ),
+                ),
+                const SizedBox(height: 24),
+                TabsRow(
+                  selectedIndex: selectedIndex,
+                  onAboutTap: () {
+                    setState(() {
+                      selectedIndex = 0;
+                    });
+                  },
+                  onLocationTap: () {
+                    setState(() {
+                      selectedIndex = 1;
+                    });
+                  },
+                  onReviewTap: () {
+                    setState(() {
+                      selectedIndex = 2;
+                    });
+                  },
+                ),
+                const SizedBox(height: 32),
+                _buildBody(),
+              ],
             ),
-            const SizedBox(height: 24),
-            TabsRow(
-              selectedIndex: selectedIndex,
-              onAboutTap: () {
-                setState(() {
-                  selectedIndex = 0;
-                });
-              },
-              onLocationTap: () {
-                setState(() {
-                  selectedIndex = 1;
-                });
-              },
-              onReviewTap: () {
-                setState(() {
-                  selectedIndex = 2;
-                });
-              },
-            ),
-            const SizedBox(height: 32),
-            _buildBody(),
-          ],
+          ),
         ),
-      ),
+        SliverFillRemaining(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            child: Column(
+              children: [
+                Expanded(child: SizedBox()),
+                CustomButtonWidget(
+                  buttonName: "Make An Appointment",
+                  onTap: () {},
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
