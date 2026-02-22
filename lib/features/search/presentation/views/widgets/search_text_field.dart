@@ -14,14 +14,14 @@ class SearchTextField extends StatelessWidget {
         fillColor: Color(0xffF2F2F2),
         filled: true,
         focusedBorder: buildBorder(
-          borderRadius: 10,
+          borderRadius: 15,
           borderColor: kTextPrimaryColor,
         ),
         enabledBorder: buildBorder(
-          borderRadius: 10,
-          borderColor: kTextSecondaryColor,
+          borderRadius: 15,
+          borderColor: Color(0xffBCBCBC),
         ),
-        prefixIcon: Icon(Icons.search, color: kTextSecondaryColor),
+        prefixIcon: Icon(Icons.search, color: Color(0xffBCBCBC), size: 34),
         hintText: "Search",
         hintStyle: Styles.styleMedium12,
       ),

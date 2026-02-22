@@ -23,7 +23,7 @@ class _HomeViewState extends State<HomeView> {
   void initState() {
     super.initState();
     pages = [
-      _buildHomePage(),
+      HomeViewBody(name: widget.name),
       SearchViewBody(
         onBackPressed: () {
           setState(() {
@@ -35,26 +35,22 @@ class _HomeViewState extends State<HomeView> {
     ];
   }
 
-  BlocProvider<GetDoctorsCubit> _buildHomePage() {
+  @override
+  Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) =>
           GetDoctorsCubit(GetDoctorsUseCase(homeRepo: getIt<HomeRepo>()))
             ..getDoctors(),
-      child: HomeViewBody(name: widget.name),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: IndexedStack(index: selectedIndex, children: pages),
-      bottomNavigationBar: MainBottomNavBar(
-        currentIndex: selectedIndex,
-        onTap: (index) {
-          setState(() {
-            selectedIndex = index;
-          });
-        },
+      child: Scaffold(
+        body: IndexedStack(index: selectedIndex, children: pages),
+        bottomNavigationBar: MainBottomNavBar(
+          currentIndex: selectedIndex,
+          onTap: (index) {
+            setState(() {
+              selectedIndex = index;
+            });
+          },
+        ),
       ),
     );
   }
