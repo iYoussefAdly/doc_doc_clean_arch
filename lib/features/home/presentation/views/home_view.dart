@@ -8,19 +8,31 @@ import 'package:doc_doc_clean_arch/features/profile/presentation/views/widgets/p
 import 'package:doc_doc_clean_arch/features/search/presentation/views/widgets/search_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 class HomeView extends StatefulWidget {
   const HomeView({super.key, required this.name});
   final String name;
   @override
   State<HomeView> createState() => _HomeViewState();
 }
+
 class _HomeViewState extends State<HomeView> {
   int selectedIndex = 0;
   late final List<Widget> pages;
   @override
   void initState() {
     super.initState();
-    pages = [_buildHomePage(), const SearchViewBody(), const ProfileViewBody()];
+    pages = [
+      _buildHomePage(),
+      SearchViewBody(
+        onBackPressed: () {
+          setState(() {
+            selectedIndex = 0;
+          });
+        },
+      ),
+      const ProfileViewBody(),
+    ];
   }
 
   BlocProvider<GetDoctorsCubit> _buildHomePage() {

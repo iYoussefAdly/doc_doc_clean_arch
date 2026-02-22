@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({super.key, required this.title});
+  const CustomAppBar({super.key, required this.title, this.onBackPressed});
   final String title;
+  final VoidCallback? onBackPressed;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -13,7 +14,13 @@ class CustomAppBar extends StatelessWidget {
       children: [
         CustomAppBarButton(
           icon: IconButton(
-            onPressed: () => GoRouter.of(context).pop(),
+            onPressed: () {
+              if (onBackPressed != null) {
+                onBackPressed!();
+              } else {
+                GoRouter.of(context).pop();
+              }
+            },
             icon: Icon(Icons.arrow_back_ios),
           ),
         ),
