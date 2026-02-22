@@ -67,4 +67,9 @@ abstract class Styles {
     fontWeight: FontWeight.w600,
     color: Colors.black,
   );
+  static const styleMedium12 = TextStyle(
+    fontSize: 12,
+    fontWeight: FontWeight.w500,
+    color: kTextSecondaryColor,
+  );
 }

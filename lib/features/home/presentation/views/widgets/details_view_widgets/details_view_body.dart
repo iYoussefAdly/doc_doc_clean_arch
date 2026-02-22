@@ -13,7 +13,7 @@ class DetailsViewBody extends StatelessWidget {
         SliverToBoxAdapter(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 23),
-            child: AppBarSection(),
+            child: AppBarSection(doctorName: doctor.name,),
           ),
         ),
         SliverToBoxAdapter(child: SizedBox(height: 32)),
