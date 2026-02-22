@@ -6,7 +6,6 @@ import 'package:doc_doc_clean_arch/features/home/presentation/views/home_view.da
 import 'package:doc_doc_clean_arch/features/splash/presentation/views/on_boarding_view.dart';
 import 'package:doc_doc_clean_arch/features/splash/presentation/views/splash_view.dart';
 import 'package:go_router/go_router.dart';
-
 abstract class AppRouter {
   static const kDetailsView = "/DetailsView";
   static const kOnBoardingView = "/OnBoardingView";
