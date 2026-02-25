@@ -1,3 +1,6 @@
+import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
+import 'package:doc_doc_clean_arch/core/errors/failure.dart';
 import '../../domain/entities/user_entity.dart';
 import '../../domain/repos/auth_repo.dart';
 import '../data_sources/auth_local_data_souce/auth_local_data_source.dart';
@@ -11,15 +14,27 @@ class AuthRepoImpl implements AuthRepo {
   final AuthLocalDataSource localDataSource;
   AuthRepoImpl({required this.remoteDataSource, required this.localDataSource});
   @override
-  Future<UserEntity> login(LoginParams params) async {
-    final UserModel userModel = await remoteDataSource.login(params);
-    return _mapToEntity(userModel);
+  Future<Either<Failure, UserEntity>> login(LoginParams params) async {
+    try {
+      final UserModel userModel = await remoteDataSource.login(params);
+      return Right(_mapToEntity(userModel));
+    } on DioException catch (e) {
+      return Left(ServerFailure.formDioException(e));
+    } catch (e) {
+      return Left(ServerFailure(errorMessage: e.toString()));
+    }
   }
 
   @override
-  Future<UserEntity> register(RegisterParams params) async {
-    final UserModel userModel = await remoteDataSource.register(params);
-    return _mapToEntity(userModel);
+  Future<Either<Failure, UserEntity>> register(RegisterParams params) async {
+    try {
+      final UserModel userModel = await remoteDataSource.register(params);
+      return Right(_mapToEntity(userModel));
+    } on DioException catch (e) {
+      return Left(ServerFailure.formDioException(e));
+    } catch (e) {
+      return Left(ServerFailure(errorMessage: e.toString()));
+    }
   }
   @override
   Future<void> logout() async {

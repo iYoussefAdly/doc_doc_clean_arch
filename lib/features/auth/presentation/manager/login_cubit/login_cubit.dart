@@ -1,5 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:dio/dio.dart';
 import 'package:doc_doc_clean_arch/core/utils/functions/checkUserLoggedIn.dart';
 import 'package:doc_doc_clean_arch/core/utils/functions/save_and_get_user_name.dart';
 import 'package:doc_doc_clean_arch/features/auth/domain/entities/user_entity.dart';
@@ -14,13 +13,16 @@ class LoginCubit extends Cubit<LoginState> {
   final LoginUseCase loginUseCase;
   Future<void> login(LoginParams params) async {
     emit(LoginLoading());
-    try {
-      final user = await loginUseCase.call(params);
-      emit(LoginSuccess(user: user));
-      checkUserisLoggedIn(true);
-      saveUserName(name: user.name!);
-    } on DioException catch (e) {
-      emit(LoginFailure(errorMessage: e.toString()));
-    }
+    final result = await loginUseCase.call(params);
+    result.fold(
+      (failure) {
+        emit(LoginFailure(errorMessage: failure.errorMessage));
+      },
+      (user) {
+        emit(LoginSuccess(user: user));
+        checkUserisLoggedIn(true);
+        saveUserName(name: user.name!);
+      },
+    );
   }
 }

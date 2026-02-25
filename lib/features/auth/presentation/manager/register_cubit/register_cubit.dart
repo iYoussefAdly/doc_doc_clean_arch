@@ -11,11 +11,14 @@ class RegisterCubit extends Cubit<RegisterState> {
   final RegisterUseCase registerUseCase;
   Future<void> register(RegisterParams params) async {
     emit(RegisterLoading());
-    try {
-      UserEntity user = await registerUseCase.call(params);
-      emit(RegisterSuccess(user: user));
-    } catch (e) {
-      emit(RegisterFailure(errorMessage: e.toString()));
-    }
+    final result = await registerUseCase.call(params);
+    result.fold(
+      (failure) {
+        emit(RegisterFailure(errorMessage: failure.errorMessage));
+      },
+      (user) {
+        emit(RegisterSuccess(user: user));
+      },
+    );
   }
 }
