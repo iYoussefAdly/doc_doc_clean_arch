@@ -12,30 +12,29 @@ import 'package:doc_doc_clean_arch/features/home/data/data_sources/home_remote_d
 import 'package:doc_doc_clean_arch/features/home/data/data_sources/home_remote_data_source/home_remote_data_source_impl.dart';
 import 'package:doc_doc_clean_arch/features/home/data/repos/home_repo_impl.dart';
 import 'package:doc_doc_clean_arch/features/home/domain/repos/home_repo.dart';
+import 'package:doc_doc_clean_arch/features/search/data/data_sources/search_remote_data_source.dart';
+import 'package:doc_doc_clean_arch/features/search/data/data_sources/search_remote_data_source_impl.dart';
+import 'package:doc_doc_clean_arch/features/search/data/repos/search_repo_impl.dart';
+import 'package:doc_doc_clean_arch/features/search/domain/repos/search_repo.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:get_it/get_it.dart';
-
 final getIt = GetIt.instance;
-
 Future<void> initServiceLocator() async {
   await registerCommon();
   registerAuthFeature();
   registerHomeFeature();
+  searchFeature();
 }
+
 Future<void> registerCommon() async {
   getIt.registerSingleton<Dio>(Dio());
-  getIt.registerSingleton<ApiServices>(
-    ApiServices(dio: getIt<Dio>()),
-  );
+  getIt.registerSingleton<ApiServices>(ApiServices(dio: getIt<Dio>()));
   final prefs = await SharedPreferences.getInstance();
   getIt.registerSingleton<SharedPreferences>(prefs);
 }
-
 void registerAuthFeature() {
   getIt.registerSingleton<AuthLocalDataSource>(
-    AuthLocalDataSourceImpl(
-      sharedPreferences: getIt<SharedPreferences>(),
-    ),
+    AuthLocalDataSourceImpl(sharedPreferences: getIt<SharedPreferences>()),
   );
 
   getIt.registerSingleton<AuthRemoteDataSource>(
@@ -55,9 +54,7 @@ void registerAuthFeature() {
 
 void registerHomeFeature() {
   getIt.registerSingleton<HomeLocalDataSource>(
-    HomeLocalDataSourceImpl(
-      prefs: getIt<SharedPreferences>(),
-    ),
+    HomeLocalDataSourceImpl(prefs: getIt<SharedPreferences>()),
   );
 
   getIt.registerSingleton<HomeRemoteDataSource>(
@@ -72,5 +69,14 @@ void registerHomeFeature() {
       homeLocalDataSource: getIt<HomeLocalDataSource>(),
       homeRemoteDataSource: getIt<HomeRemoteDataSource>(),
     ),
+  );
+}
+
+void searchFeature() {
+  getIt.registerSingleton<SearchRemoteDataSource>(
+    SearchRemoteDataSourceImpl(apiServices: getIt<ApiServices>()),
+  );
+  getIt.registerSingleton<SearchRepo>(
+    SearchRepoImpl(searchRemoteDataSource: getIt<SearchRemoteDataSource>()),
   );
 }

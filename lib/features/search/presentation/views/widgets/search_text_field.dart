@@ -4,11 +4,17 @@ import 'package:doc_doc_clean_arch/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class SearchTextField extends StatelessWidget {
-  const SearchTextField({super.key, required this.searchController});
+  const SearchTextField({
+    super.key,
+    required this.searchController,
+    required this.onSubmitted,
+  });
   final TextEditingController searchController;
+  final void Function() onSubmitted;
   @override
   Widget build(BuildContext context) {
     return TextField(
+      onSubmitted: (_) => onSubmitted(),
       controller: searchController,
       decoration: InputDecoration(
         fillColor: Color(0xffF2F2F2),
