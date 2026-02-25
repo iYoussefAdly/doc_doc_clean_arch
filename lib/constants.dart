@@ -15,3 +15,4 @@ const kGetDoctorsEndPoint = "/doctor/index";
 const kCachedDoctors = 'CACHED_DOCTORS';
 const kLogOutEndPoint = "/auth/logout";
 const kBorderColor = Color(0xffE4E4E4);
+const searchEndPoint = "/doctor/doctor-search?";

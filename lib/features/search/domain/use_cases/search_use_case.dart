@@ -10,6 +10,7 @@ class SearchUseCase extends UseCase<List<DoctorEntity>, SearchParam> {
   SearchUseCase({required this.searchRepo});
   @override
   Future<Either<Failure,List<DoctorEntity>>> call(SearchParam param) async{
+    //check user permission
    return await searchRepo.getSearchResults(param: param);
   }
 }
