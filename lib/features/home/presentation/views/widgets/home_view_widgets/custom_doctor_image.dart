@@ -19,7 +19,7 @@ class CustomDoctorImage extends StatelessWidget {
                 return Image.asset(AssetData.defaultUserImage, fit: BoxFit.fill);
               },
             )
-          : Image.asset(AssetData.doctor2, fit: BoxFit.fill),
+          : Image.asset(AssetData.defaultUserImage, fit: BoxFit.fill),
     );
   }
 }
