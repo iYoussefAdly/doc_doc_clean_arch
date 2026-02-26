@@ -4,7 +4,7 @@ part of 'search_result_cubit.dart';
 sealed class SearchResultState {}
 
 final class SearchResultInitial extends SearchResultState {
-  final String message = "search for a doctor";
+  final String message = "Enter a doctor name to see matching results.";
 }
 
 final class SearchResultSuccess extends SearchResultState {
