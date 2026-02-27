@@ -5,8 +5,8 @@ import 'package:doc_doc_clean_arch/features/search/domain/use_cases/search_use_c
 import 'package:doc_doc_clean_arch/features/search/domain/use_cases/sort_use_case.dart';
 import 'package:doc_doc_clean_arch/features/search/presentation/manager/search_result_cubit/search_result_cubit.dart';
 import 'package:doc_doc_clean_arch/features/search/presentation/manager/sort_result_cubit/sort_result_cubit.dart';
-import 'package:doc_doc_clean_arch/features/search/presentation/views/widgets/search_result_item_builder.dart';
 import 'package:doc_doc_clean_arch/features/search/presentation/views/widgets/search_section.dart';
+import 'package:doc_doc_clean_arch/features/search/presentation/views/widgets/sort_and_search_item_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -17,14 +17,15 @@ class SearchViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(
+        BlocProvider<SearchResultCubit>(
           create: (context) => SearchResultCubit(
             searchUseCase: SearchUseCase(searchRepo: getIt<SearchRepo>()),
           ),
         ),
-        BlocProvider(
-          create: (context) =>
-              SortResultCubit(SortUseCase(searchRepo: getIt<SearchRepo>())),
+        BlocProvider<SortResultCubit>(
+          create: (context) => SortResultCubit(
+            SortUseCase(searchRepo: getIt<SearchRepo>()),
+          ),
         ),
       ],
       child: CustomScrollView(
@@ -46,7 +47,7 @@ class SearchViewBody extends StatelessWidget {
             child: Expanded(
               child: Padding(
                 padding: const EdgeInsets.only(left: 16, right: 16),
-                child: SearchResultItemBuilder(),
+                child: SortAndSearchItemBuildeer(),
               ),
             ),
           ),

@@ -1,6 +1,7 @@
 import 'package:doc_doc_clean_arch/core/utils/functions/show_bottom_sheet.dart';
 import 'package:doc_doc_clean_arch/features/search/domain/use_cases/params/search_param.dart';
 import 'package:doc_doc_clean_arch/features/search/presentation/manager/search_result_cubit/search_result_cubit.dart';
+import 'package:doc_doc_clean_arch/features/search/presentation/manager/sort_result_cubit/sort_result_cubit.dart';
 import 'package:doc_doc_clean_arch/features/search/presentation/views/widgets/search_text_field.dart';
 import 'package:doc_doc_clean_arch/features/search/presentation/views/widgets/sort_bottom_sheet.dart';
 import 'package:doc_doc_clean_arch/features/search/presentation/views/widgets/sort_button.dart';
@@ -29,7 +30,10 @@ class SearchSection extends StatelessWidget {
           onTap: () => showAppBottomSheet(
             context: context,
             heightFactor: 0.6,
-            child: SortBottomSheet(),
+            child: BlocProvider.value(
+              value: BlocProvider.of<SortResultCubit>(context),
+              child: const SortBottomSheet(),
+            ),
           ),
         ),
       ],

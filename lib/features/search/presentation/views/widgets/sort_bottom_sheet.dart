@@ -31,6 +31,7 @@ class SortBottomSheet extends StatelessWidget {
                     cityId: int.parse(cityIdContorller.text.trim()),
                   ),
                 );
+                Navigator.pop(context);
               },
             ),
           ],
