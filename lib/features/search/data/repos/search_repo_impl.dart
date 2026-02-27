@@ -11,8 +11,8 @@ import 'package:doc_doc_clean_arch/features/search/domain/use_cases/params/sort_
 class SearchRepoImpl extends SearchRepo {
   final SearchRemoteDataSource searchRemoteDataSource;
   final SortRemoteDataSource sortRemoteDataSource;
-  SearchRepoImpl(
-    this.sortRemoteDataSource, {
+  SearchRepoImpl({
+    required this.sortRemoteDataSource,
     required this.searchRemoteDataSource,
   });
   @override
