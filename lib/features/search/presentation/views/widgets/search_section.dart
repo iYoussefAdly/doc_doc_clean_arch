@@ -19,6 +19,7 @@ class SearchSection extends StatelessWidget {
           child: SearchTextField(
             searchController: nameController,
             onSubmitted: () {
+              BlocProvider.of<SortResultCubit>(context).reset();
               BlocProvider.of<SearchResultCubit>(context).getDoctorResult(
                 param: SearchParam(name: nameController.text.trim()),
               );

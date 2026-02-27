@@ -19,4 +19,8 @@ class SortResultCubit extends Cubit<SortResultState> {
       },
     );
   }
+
+  void reset() {
+    emit(SortResultInitial());
+  }
 }

@@ -26,17 +26,20 @@ class SortBottomSheet extends StatelessWidget {
             CustomButtonWidget(
               buttonName: "Done",
               onTap: () {
-                BlocProvider.of<SortResultCubit>(context).sortDoctors(
-                  param: SortParam(
-                    cityId: int.parse(cityIdContorller.text.trim()),
-                  ),
-                );
-                Navigator.pop(context);
+                sortRequest(context);
               },
             ),
           ],
         ),
       ),
     );
+  }
+
+  void sortRequest(BuildContext context) {
+    BlocProvider.of<SortResultCubit>(context).sortDoctors(
+      param: SortParam(cityId: int.parse(cityIdContorller.text.trim())),
+    );
+    cityIdContorller.clear();
+    Navigator.pop(context);
   }
 }
