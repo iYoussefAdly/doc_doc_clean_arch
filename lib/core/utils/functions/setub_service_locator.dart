@@ -12,8 +12,8 @@ import 'package:doc_doc_clean_arch/features/home/data/data_sources/home_remote_d
 import 'package:doc_doc_clean_arch/features/home/data/data_sources/home_remote_data_source/home_remote_data_source_impl.dart';
 import 'package:doc_doc_clean_arch/features/home/data/repos/home_repo_impl.dart';
 import 'package:doc_doc_clean_arch/features/home/domain/repos/home_repo.dart';
-import 'package:doc_doc_clean_arch/features/search/data/data_sources/search_remote_data_source.dart';
-import 'package:doc_doc_clean_arch/features/search/data/data_sources/search_remote_data_source_impl.dart';
+import 'package:doc_doc_clean_arch/features/search/data/data_sources/search_data_sources/search_remote_data_source.dart';
+import 'package:doc_doc_clean_arch/features/search/data/data_sources/search_data_sources/search_remote_data_source_impl.dart';
 import 'package:doc_doc_clean_arch/features/search/data/repos/search_repo_impl.dart';
 import 'package:doc_doc_clean_arch/features/search/domain/repos/search_repo.dart';
 import 'package:shared_preferences/shared_preferences.dart';
