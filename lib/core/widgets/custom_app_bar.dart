@@ -21,12 +21,26 @@ class CustomAppBar extends StatelessWidget {
                 GoRouter.of(context).pop();
               }
             },
-            icon: Icon(Icons.arrow_back_ios),
+            icon: Icon(
+              Icons.arrow_back_ios,
+              color: title == "Profile" ? Colors.white : Colors.black,
+            ),
           ),
         ),
-        Text(title, style: Styles.styleSemiBold18),
+        Text(
+          title,
+          style: Styles.styleSemiBold18.copyWith(
+            color: title == "Profile" ? Colors.white : Colors.black,
+          ),
+        ),
         CustomAppBarButton(
-          icon: IconButton(onPressed: () {}, icon: Icon(Icons.more_horiz)),
+          icon: IconButton(
+            onPressed: () {},
+            icon: Icon(
+              Icons.more_horiz,
+              color: title == "Profile" ? Colors.white : Colors.black,
+            ),
+          ),
         ),
       ],
     );

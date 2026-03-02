@@ -11,25 +11,32 @@ class CustomProfileImage extends StatelessWidget {
       clipBehavior: Clip.none,
       children: [
         Container(
-          height: 150,
-          width: 150,
-          decoration: BoxDecoration(shape: BoxShape.circle),
-          child: Padding(
-            padding: const EdgeInsets.all(10),
-            child: Image.asset(AssetData.profileImage),
+          height: 120,
+          width: 120,
+          decoration: const BoxDecoration(
+            shape: BoxShape.circle,
+          ),
+          clipBehavior: Clip.antiAlias,
+          child: Image.asset(
+            AssetData.profileImage,
+            fit: BoxFit.cover,
           ),
         ),
         Positioned(
-          top: 100,
-          left: 95,
+          bottom: 0,
+          right: 0,
           child: Container(
-            decoration: BoxDecoration(
-              color: kBorderColor,
+            height: 32,
+            width: 32,
+            decoration: const BoxDecoration(
               shape: BoxShape.circle,
+              color: kBorderColor,
             ),
-            height: 30,
-            width: 30,
-            child: Icon(Icons.edit_outlined, color: kTextPrimaryColor),
+            child: const Icon(
+              Icons.edit_outlined,
+              size: 18,
+              color: kTextPrimaryColor,
+            ),
           ),
         ),
       ],
