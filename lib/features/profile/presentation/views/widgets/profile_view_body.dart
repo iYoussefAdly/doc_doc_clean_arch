@@ -3,8 +3,8 @@ import 'package:doc_doc_clean_arch/features/profile/presentation/views/widgets/h
 import 'package:flutter/material.dart';
 
 class ProfileViewBody extends StatelessWidget {
-  const ProfileViewBody({super.key});
-
+  const ProfileViewBody({super.key, this.onBackPressed});
+  final VoidCallback? onBackPressed;
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
@@ -14,7 +14,7 @@ class ProfileViewBody extends StatelessWidget {
         final detailsTop = height * 0.30;
         return Stack(
           children: [
-            HeadContainer(height: headerHeight),
+            HeadContainer(height: headerHeight,onBackPressed:onBackPressed,),
             Positioned(
               top: detailsTop,
               left: 0,

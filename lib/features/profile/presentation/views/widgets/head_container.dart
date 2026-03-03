@@ -6,10 +6,10 @@ class HeadContainer extends StatelessWidget {
   const HeadContainer({
     super.key,
     this.height,
+    this.onBackPressed,
   });
-
   final double? height;
-
+  final VoidCallback? onBackPressed;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,7 +20,7 @@ class HeadContainer extends StatelessWidget {
         padding: const EdgeInsets.only(top: 80),
         child: Align(
           alignment: AlignmentGeometry.topCenter,
-          child: CustomAppBar(title: "Profile"),
+          child: CustomAppBar(title: "Profile",onBackPressed: onBackPressed,),
         ),
       ),
     );

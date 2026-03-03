@@ -31,7 +31,13 @@ class _HomeViewState extends State<HomeView> {
           });
         },
       ),
-      const ProfileViewBody(),
+      ProfileViewBody(
+        onBackPressed: () {
+          setState(() {
+            selectedIndex = 0;
+          });
+        },
+      ),
     ];
   }
 

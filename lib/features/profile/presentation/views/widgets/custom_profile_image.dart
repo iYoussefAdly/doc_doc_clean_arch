@@ -1,6 +1,8 @@
 import 'package:doc_doc_clean_arch/constants.dart';
+import 'package:doc_doc_clean_arch/core/utils/app_router.dart';
 import 'package:doc_doc_clean_arch/core/utils/asset_data.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class CustomProfileImage extends StatelessWidget {
   const CustomProfileImage({super.key});
@@ -32,10 +34,13 @@ class CustomProfileImage extends StatelessWidget {
               shape: BoxShape.circle,
               color: kBorderColor,
             ),
-            child: const Icon(
-              Icons.edit_outlined,
-              size: 18,
-              color: kTextPrimaryColor,
+            child: InkWell(
+              onTap: () => GoRouter.of(context).push(AppRouter.kUpdateProfileView),
+              child: Icon(
+                Icons.edit_outlined,
+                size: 18,
+                color: kTextPrimaryColor,
+              ),
             ),
           ),
         ),
