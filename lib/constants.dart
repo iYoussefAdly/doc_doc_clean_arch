@@ -17,3 +17,5 @@ const kLogOutEndPoint = "/auth/logout";
 const kBorderColor = Color(0xffE4E4E4);
 const searchEndPoint = "/doctor/doctor-search?";
 const sortEndPoint = "/doctor/doctor-filter?";
+const kTextFiedColor = Color(0xffF2F2F2);
+const kBorderTextFieldColor = Color(0xffBCBCBC);

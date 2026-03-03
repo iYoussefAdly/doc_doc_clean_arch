@@ -3,32 +3,30 @@ import 'package:doc_doc_clean_arch/core/utils/functions/build_border.dart';
 import 'package:doc_doc_clean_arch/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
-class SearchTextField extends StatelessWidget {
-  const SearchTextField({
+class CustomProfileTextField extends StatelessWidget {
+  const CustomProfileTextField({
     super.key,
-    required this.searchController,
-    required this.onSubmitted,
+    required this.hintText,
+    required this.controller,
   });
-  final TextEditingController searchController;
-  final void Function() onSubmitted;
+  final String hintText;
+  final TextEditingController controller;
   @override
   Widget build(BuildContext context) {
     return TextField(
-      onSubmitted: (_) => onSubmitted(),
-      controller: searchController,
+      controller: controller,
       decoration: InputDecoration(
-        fillColor: kTextFiedColor,
         filled: true,
+        fillColor: kTextFiedColor,
         focusedBorder: buildBorder(
-          borderRadius: 15,
+          borderRadius: 10,
           borderColor: kTextPrimaryColor,
         ),
         enabledBorder: buildBorder(
-          borderRadius: 15,
+          borderRadius: 10,
           borderColor: kBorderTextFieldColor,
         ),
-        prefixIcon: Icon(Icons.search, color: Color(0xffBCBCBC), size: 34),
-        hintText: "Search",
+        hintText: hintText,
         hintStyle: Styles.styleMedium12,
       ),
     );
