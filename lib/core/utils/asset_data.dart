@@ -34,4 +34,8 @@ abstract class AssetData {
       "assets/images/home_images/default user image.jpg";
   static const sortImage = "assets/images/home_images/sort.png";
   static const profileImage = "assets/images/home_images/Image (1).png";
+  static const paymentIcon = "assets/images/home_images/payment_icon.png";
+  static const testIcon = "assets/images/home_images/test_icon.png";
+  static const personalInformationIcon =
+      "assets/images/home_images/prsonal_information_icon.png";
 }
