@@ -12,6 +12,10 @@ import 'package:doc_doc_clean_arch/features/home/data/data_sources/home_remote_d
 import 'package:doc_doc_clean_arch/features/home/data/data_sources/home_remote_data_source/home_remote_data_source_impl.dart';
 import 'package:doc_doc_clean_arch/features/home/data/repos/home_repo_impl.dart';
 import 'package:doc_doc_clean_arch/features/home/domain/repos/home_repo.dart';
+import 'package:doc_doc_clean_arch/features/profile/data/remote_data_source.dart/profile_remote_data_source.dart';
+import 'package:doc_doc_clean_arch/features/profile/data/remote_data_source.dart/profile_remote_data_source_impl.dart';
+import 'package:doc_doc_clean_arch/features/profile/data/repos/profile_repo_impl.dart';
+import 'package:doc_doc_clean_arch/features/profile/domain/repos/profile_repo.dart';
 import 'package:doc_doc_clean_arch/features/search/data/data_sources/search_data_sources/search_remote_data_source.dart';
 import 'package:doc_doc_clean_arch/features/search/data/data_sources/search_data_sources/search_remote_data_source_impl.dart';
 import 'package:doc_doc_clean_arch/features/search/data/data_sources/sort_data_sources/sort_remote_data_source.dart';
@@ -27,6 +31,7 @@ Future<void> initServiceLocator() async {
   registerAuthFeature();
   registerHomeFeature();
   searchFeature();
+  profileFeature();
 }
 
 Future<void> registerCommon() async {
@@ -88,5 +93,14 @@ void searchFeature() {
       sortRemoteDataSource: getIt<SortRemoteDataSource>(),
       searchRemoteDataSource: getIt<SearchRemoteDataSource>(),
     ),
+  );
+}
+
+void profileFeature() {
+  getIt.registerSingleton<ProfileRemoteDataSource>(
+  ProfileRemoteDataSourceImpl(apiServices: getIt<ApiServices>()),
+  );
+  getIt.registerSingleton<ProfileRepo>(
+    ProfileRepoImpl(profileRemoteDataSource: getIt<ProfileRemoteDataSource>())
   );
 }
