@@ -1,4 +1,4 @@
-import 'package:doc_doc_clean_arch/features/profile/data/models/profile_user_model.dart';
+import 'package:doc_doc_clean_arch/features/profile/domain/entities/profile_user_entity.dart';
 abstract class ProfileRemoteDataSource {
-  Future<ProfileUserModel> getUserData();
+  Future<ProfileUserEntity> getUserData();
 }
