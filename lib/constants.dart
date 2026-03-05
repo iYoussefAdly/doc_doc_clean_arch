@@ -19,3 +19,4 @@ const searchEndPoint = "/doctor/doctor-search?";
 const sortEndPoint = "/doctor/doctor-filter?";
 const kTextFiedColor = Color(0xffF2F2F2);
 const kBorderTextFieldColor = Color(0xffBCBCBC);
+const kGetUserDataEndPoint = "/user/profile";
