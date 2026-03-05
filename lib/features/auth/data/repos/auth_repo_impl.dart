@@ -36,6 +36,7 @@ class AuthRepoImpl implements AuthRepo {
       return Left(ServerFailure(errorMessage: e.toString()));
     }
   }
+
   @override
   Future<void> logout() async {
     try {
@@ -49,11 +50,12 @@ class AuthRepoImpl implements AuthRepo {
     }
   }
 }
-  UserEntity _mapToEntity(UserModel model) {
-    return UserEntity(
-      name: model.name,
-      email: model.email,
-      phone: model.phone,
-      gender: model.gender,
-    );
-  }
+
+UserEntity _mapToEntity(UserModel model) {
+  return UserEntity(
+    name: model.name,
+    email: model.email,
+    phone: model.phone,
+    gender: model.gender,
+  );
+}

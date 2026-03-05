@@ -3,11 +3,7 @@ import 'package:doc_doc_clean_arch/core/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 
 class HeadContainer extends StatelessWidget {
-  const HeadContainer({
-    super.key,
-    this.height,
-    this.onBackPressed,
-  });
+  const HeadContainer({super.key, this.height, this.onBackPressed});
   final double? height;
   final VoidCallback? onBackPressed;
   @override
@@ -20,7 +16,7 @@ class HeadContainer extends StatelessWidget {
         padding: const EdgeInsets.only(top: 80),
         child: Align(
           alignment: AlignmentGeometry.topCenter,
-          child: CustomAppBar(title: "Profile",onBackPressed: onBackPressed,),
+          child: CustomAppBar(title: "Profile", onBackPressed: onBackPressed),
         ),
       ),
     );

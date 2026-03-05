@@ -7,7 +7,7 @@ class SortButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap:onTap,
+      onTap: onTap,
       child: Container(
         height: 24,
         width: 24,

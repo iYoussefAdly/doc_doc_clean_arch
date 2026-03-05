@@ -25,9 +25,15 @@ class UpdateProfileTextFields extends StatelessWidget {
         SizedBox(height: 16),
         CustomProfileTextField(hintText: "phone", controller: phoneController),
         SizedBox(height: 16),
-        CustomProfileTextField(hintText: "gender", controller: genderController),
+        CustomProfileTextField(
+          hintText: "gender",
+          controller: genderController,
+        ),
         SizedBox(height: 16),
-        CustomProfileTextField(hintText: "password", controller: passwordController),
+        CustomProfileTextField(
+          hintText: "password",
+          controller: passwordController,
+        ),
       ],
     );
   }

@@ -15,14 +15,9 @@ class CustomProfileImage extends StatelessWidget {
         Container(
           height: 120,
           width: 120,
-          decoration: const BoxDecoration(
-            shape: BoxShape.circle,
-          ),
+          decoration: const BoxDecoration(shape: BoxShape.circle),
           clipBehavior: Clip.antiAlias,
-          child: Image.asset(
-            AssetData.profileImage,
-            fit: BoxFit.cover,
-          ),
+          child: Image.asset(AssetData.profileImage, fit: BoxFit.cover),
         ),
         Positioned(
           bottom: 0,
@@ -35,7 +30,8 @@ class CustomProfileImage extends StatelessWidget {
               color: kBorderColor,
             ),
             child: InkWell(
-              onTap: () => GoRouter.of(context).push(AppRouter.kUpdateProfileView),
+              onTap: () =>
+                  GoRouter.of(context).push(AppRouter.kUpdateProfileView),
               child: Icon(
                 Icons.edit_outlined,
                 size: 18,

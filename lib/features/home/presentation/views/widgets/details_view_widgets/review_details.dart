@@ -27,10 +27,7 @@ class ReviewDetails extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(left: 16.5),
-            child: Text(
-              comment,
-              style: Styles.styleRegular12,
-            ),
+            child: Text(comment, style: Styles.styleRegular12),
           ),
         ],
       ),

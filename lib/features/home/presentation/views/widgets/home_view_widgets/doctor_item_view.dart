@@ -13,7 +13,7 @@ class DoctorItemView extends StatelessWidget {
       itemBuilder: (context, index) {
         return Padding(
           padding: const EdgeInsets.only(bottom: 16),
-          child: DoctorItem(doctor: doctors[index],),
+          child: DoctorItem(doctor: doctors[index]),
         );
       },
     );

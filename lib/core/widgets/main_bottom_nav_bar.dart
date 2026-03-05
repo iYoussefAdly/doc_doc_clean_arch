@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 class MainBottomNavBar extends StatelessWidget {
   const MainBottomNavBar({
     super.key,
@@ -12,7 +13,7 @@ class MainBottomNavBar extends StatelessWidget {
     return BottomNavigationBar(
       currentIndex: currentIndex,
       onTap: onTap,
-      items:[
+      items: [
         BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
         BottomNavigationBarItem(icon: Icon(Icons.search), label: "Search"),
         BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),

@@ -16,4 +16,5 @@ final class SearchResultFailure extends SearchResultState {
   final String errorMessage;
   SearchResultFailure({required this.errorMessage});
 }
-final class SearchResultLoading extends SearchResultState{}
+
+final class SearchResultLoading extends SearchResultState {}

@@ -14,4 +14,4 @@ class GetDoctorsUseCase extends UseCase<List<DoctorEntity>, NoParam> {
   }
 }
 
-class NoParam{}
+class NoParam {}

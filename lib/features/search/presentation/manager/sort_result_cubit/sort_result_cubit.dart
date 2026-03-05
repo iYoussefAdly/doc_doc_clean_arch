@@ -4,6 +4,7 @@ import 'package:doc_doc_clean_arch/features/search/domain/use_cases/params/sort_
 import 'package:doc_doc_clean_arch/features/search/domain/use_cases/sort_use_case.dart';
 import 'package:meta/meta.dart';
 part 'sort_result_state.dart';
+
 class SortResultCubit extends Cubit<SortResultState> {
   SortResultCubit(this.sortUseCase) : super(SortResultInitial());
   final SortUseCase sortUseCase;

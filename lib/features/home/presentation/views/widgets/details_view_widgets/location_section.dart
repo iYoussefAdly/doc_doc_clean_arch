@@ -11,15 +11,17 @@ class LocationSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        CustomAboutSectionWidget(head: "Practice Place", details: "Cairo, Egypt"),
-        SizedBox(
-          height: 18,
+        CustomAboutSectionWidget(
+          head: "Practice Place",
+          details: "Cairo, Egypt",
         ),
-        Text("Location Map",style: Styles.styleSemiBold16.copyWith(color: Colors.black),),
-        SizedBox(
-          height: 12,
+        SizedBox(height: 18),
+        Text(
+          "Location Map",
+          style: Styles.styleSemiBold16.copyWith(color: Colors.black),
         ),
-        Center(child: Image.asset(AssetData.map))
+        SizedBox(height: 12),
+        Center(child: Image.asset(AssetData.map)),
       ],
     );
   }

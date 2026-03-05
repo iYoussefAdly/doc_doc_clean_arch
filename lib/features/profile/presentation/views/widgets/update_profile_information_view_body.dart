@@ -36,10 +36,8 @@ class UpdateProfileInformationViewBody extends StatelessWidget {
               "When you set up your personal information settings, you\nshould take care to provide accurate information.",
               style: Styles.styleRegular12,
             ),
-            SizedBox(
-              height: 60,
-            ),
-            CustomButtonWidget(buttonName: "Save", onTap: (){})
+            SizedBox(height: 60),
+            CustomButtonWidget(buttonName: "Save", onTap: () {}),
           ],
         ),
       ),

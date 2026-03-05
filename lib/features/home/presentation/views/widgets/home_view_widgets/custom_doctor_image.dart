@@ -16,7 +16,10 @@ class CustomDoctorImage extends StatelessWidget {
               image!,
               fit: BoxFit.fill,
               errorBuilder: (context, error, stackTrace) {
-                return Image.asset(AssetData.defaultUserImage, fit: BoxFit.fill);
+                return Image.asset(
+                  AssetData.defaultUserImage,
+                  fit: BoxFit.fill,
+                );
               },
             )
           : Image.asset(AssetData.defaultUserImage, fit: BoxFit.fill),

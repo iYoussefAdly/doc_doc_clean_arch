@@ -34,9 +34,7 @@ class _DetailsSectionState extends State<DetailsSection> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            DoctorItem(
-              doctor: widget.doctor,
-            ),
+            DoctorItem(doctor: widget.doctor),
             const SizedBox(height: 24),
             TabsRow(
               selectedIndex: selectedIndex,

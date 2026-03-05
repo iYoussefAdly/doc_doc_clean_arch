@@ -4,4 +4,3 @@ import 'package:doc_doc_clean_arch/features/auth/data/data_sources/auth_local_da
 Future<String?> getUserToken() async {
   return getIt<AuthLocalDataSource>().getToken();
 }
-

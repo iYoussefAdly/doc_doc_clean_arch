@@ -3,6 +3,7 @@ import 'package:doc_doc_clean_arch/features/search/presentation/manager/sort_res
 import 'package:doc_doc_clean_arch/features/search/presentation/views/widgets/sort_result_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 class SortResultItemBuilder extends StatelessWidget {
   const SortResultItemBuilder({super.key});
   @override

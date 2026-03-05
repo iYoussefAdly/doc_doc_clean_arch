@@ -10,11 +10,7 @@ class AboutSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        CustomAboutSectionWidget(
-          head: 'Adress',
-          details:
-              "${doctor.addresse}",
-        ),
+        CustomAboutSectionWidget(head: 'Adress', details: "${doctor.addresse}"),
         SizedBox(height: 24),
         CustomAboutSectionWidget(
           head: "Working Time",

@@ -23,9 +23,8 @@ class SearchViewBody extends StatelessWidget {
           ),
         ),
         BlocProvider<SortResultCubit>(
-          create: (context) => SortResultCubit(
-            SortUseCase(searchRepo: getIt<SearchRepo>()),
-          ),
+          create: (context) =>
+              SortResultCubit(SortUseCase(searchRepo: getIt<SearchRepo>())),
         ),
       ],
       child: CustomScrollView(

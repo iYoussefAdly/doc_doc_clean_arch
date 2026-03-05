@@ -2,6 +2,7 @@ import 'package:doc_doc_clean_arch/features/profile/presentation/views/widgets/m
 import 'package:doc_doc_clean_arch/features/profile/presentation/views/widgets/name_email_and_phone.dart';
 import 'package:doc_doc_clean_arch/features/profile/presentation/views/widgets/profile_items_view.dart';
 import 'package:flutter/material.dart';
+
 class UserDetails extends StatelessWidget {
   const UserDetails({super.key});
   @override
@@ -12,18 +13,12 @@ class UserDetails extends StatelessWidget {
         children: [
           SizedBox(height: 100),
           NameEmailAndPhone(),
-          SizedBox(
-            height: 24,
-          ),
+          SizedBox(height: 24),
           MyAppointmentAndMedicalRecordSection(),
-          SizedBox(
-            height: 24,
-          ),
-          ProfileItemsView()
+          SizedBox(height: 24),
+          ProfileItemsView(),
         ],
       ),
     );
   }
 }
-
-

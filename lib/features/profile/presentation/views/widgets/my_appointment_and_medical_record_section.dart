@@ -23,17 +23,9 @@ class MyAppointmentAndMedicalRecordSection extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(
-            width: 10,
-          ),
-          Container(
-            height: 42,
-            width: 1.5,
-            color: kBorderAndHintTextColor,
-          ),
-          SizedBox(
-            width: 10,
-          ),
+          SizedBox(width: 10),
+          Container(height: 42, width: 1.5, color: kBorderAndHintTextColor),
+          SizedBox(width: 10),
           Expanded(
             child: Center(
               child: Text(

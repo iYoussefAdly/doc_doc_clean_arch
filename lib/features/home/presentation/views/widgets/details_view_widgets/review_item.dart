@@ -10,7 +10,14 @@ class ReviewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: [ReviewImage(image: reviewItemModel.image,), SizedBox(width: 10), ReviewDetails(name: reviewItemModel.name,comment:reviewItemModel.comment,)],
+      children: [
+        ReviewImage(image: reviewItemModel.image),
+        SizedBox(width: 10),
+        ReviewDetails(
+          name: reviewItemModel.name,
+          comment: reviewItemModel.comment,
+        ),
+      ],
     );
   }
 }

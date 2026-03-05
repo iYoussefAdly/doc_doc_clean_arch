@@ -69,10 +69,7 @@ class AuthRemoteDataSourceImpl extends AuthRemoteDataSource {
   Future<void> logOut() async {
     try {
       final token = await localDataSource.getToken();
-      await apiServices.post(
-        endPoint: kLogOutEndPoint,
-        token: token,
-      );
+      await apiServices.post(endPoint: kLogOutEndPoint, token: token);
     } catch (e) {
       throw Exception('Logout failed: $e');
     }

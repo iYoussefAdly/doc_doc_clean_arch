@@ -10,19 +10,18 @@ class HomeLocalDataSourceImpl extends HomeLocalDataSource {
   final SharedPreferences prefs;
   HomeLocalDataSourceImpl({required this.prefs});
   @override
-  Future<void> cacheDoctors(List<DoctorEntity> doctors)async{
+  Future<void> cacheDoctors(List<DoctorEntity> doctors) async {
     final doctorsJson = doctors
         .map((doctor) => (doctor as DoctorModel).toJson())
         .toList();
     await prefs.setString(kCachedDoctors, json.encode(doctorsJson));
   }
+
   @override
   Future<List<DoctorEntity>> getCachedDoctors() async {
     final jsonString = prefs.getString(kCachedDoctors);
     if (jsonString == null) return [];
     final List decoded = json.decode(jsonString);
-    return decoded
-        .map((doctor) => DoctorModel.fromJson(doctor))
-        .toList();
+    return decoded.map((doctor) => DoctorModel.fromJson(doctor)).toList();
   }
 }

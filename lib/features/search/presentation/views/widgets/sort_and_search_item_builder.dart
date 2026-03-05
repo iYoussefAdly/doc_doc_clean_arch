@@ -5,9 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SortAndSearchItemBuildeer extends StatelessWidget {
-  const SortAndSearchItemBuildeer({
-    super.key,
-  });
+  const SortAndSearchItemBuildeer({super.key});
 
   @override
   Widget build(BuildContext context) {

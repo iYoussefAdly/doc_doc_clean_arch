@@ -25,7 +25,8 @@ class HomeIntro extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(left: 10),
           child: BlocProvider(
-            create: (context) => LogoutCubit(LogoutUseCase(authRepo: getIt<AuthRepo>())),
+            create: (context) =>
+                LogoutCubit(LogoutUseCase(authRepo: getIt<AuthRepo>())),
             child: LogOutWidget(),
           ),
         ),

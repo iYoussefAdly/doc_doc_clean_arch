@@ -14,7 +14,7 @@ class ProfileViewBody extends StatelessWidget {
         final detailsTop = height * 0.30;
         return Stack(
           children: [
-            HeadContainer(height: headerHeight,onBackPressed:onBackPressed,),
+            HeadContainer(height: headerHeight, onBackPressed: onBackPressed),
             Positioned(
               top: detailsTop,
               left: 0,

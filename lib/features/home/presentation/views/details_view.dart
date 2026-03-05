@@ -7,6 +7,6 @@ class DetailsView extends StatelessWidget {
   final DoctorEntity doctor;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: DetailsViewBody(doctor: doctor,));
+    return Scaffold(body: DetailsViewBody(doctor: doctor));
   }
 }

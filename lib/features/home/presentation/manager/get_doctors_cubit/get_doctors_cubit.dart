@@ -3,6 +3,7 @@ import 'package:doc_doc_clean_arch/features/home/domain/entities/doctor_entity.d
     show DoctorEntity;
 import 'package:doc_doc_clean_arch/features/home/domain/use_cases/get_doctors_use_case.dart';
 part 'get_doctors_state.dart';
+
 class GetDoctorsCubit extends Cubit<GetDoctorsState> {
   GetDoctorsCubit(this.getDoctorsUseCase) : super(GetDoctorsInitial());
   final GetDoctorsUseCase getDoctorsUseCase;
