@@ -4,6 +4,8 @@ import 'package:doc_doc_clean_arch/core/utils/functions/get_user_token.dart';
 import 'package:doc_doc_clean_arch/features/profile/data/models/profile_user_model.dart';
 import 'package:doc_doc_clean_arch/features/profile/data/remote_data_source.dart/profile_remote_data_source.dart';
 import 'package:doc_doc_clean_arch/features/profile/domain/entities/profile_user_entity.dart';
+import 'package:doc_doc_clean_arch/features/profile/domain/use_cases/params/update_profile_param.dart';
+
 class ProfileRemoteDataSourceImpl extends ProfileRemoteDataSource {
   final ApiServices apiServices;
   ProfileRemoteDataSourceImpl({required this.apiServices});
@@ -17,5 +19,17 @@ class ProfileRemoteDataSourceImpl extends ProfileRemoteDataSource {
     final json = response["data"][0];
     final userModel = ProfileUserModel.fromJson(json);
     return userModel;
+  }
+
+  @override
+  Future<ProfileUserEntity> updateProfile(UpdateProfileParam params) async {
+    final token = await getUserToken();
+    final response = await apiServices.post(
+      endPoint: updateProfileEndPoint,
+      data: params.toJson(),
+      token: token,
+    );
+    final json = response["data"];
+    return ProfileUserModel.fromJson(json);
   }
 }

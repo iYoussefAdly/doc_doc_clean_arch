@@ -4,6 +4,7 @@ import 'package:doc_doc_clean_arch/core/errors/failure.dart';
 import 'package:doc_doc_clean_arch/features/profile/data/remote_data_source.dart/profile_remote_data_source.dart';
 import 'package:doc_doc_clean_arch/features/profile/domain/entities/profile_user_entity.dart';
 import 'package:doc_doc_clean_arch/features/profile/domain/repos/profile_repo.dart';
+import 'package:doc_doc_clean_arch/features/profile/domain/use_cases/params/update_profile_param.dart';
 
 class ProfileRepoImpl extends ProfileRepo {
   final ProfileRemoteDataSource profileRemoteDataSource;
@@ -12,6 +13,20 @@ class ProfileRepoImpl extends ProfileRepo {
   Future<Either<Failure, ProfileUserEntity>> getUserData() async {
     try {
       final result = await profileRemoteDataSource.getUserData();
+      return Right(result);
+    } on DioException catch (e) {
+      return Left(ServerFailure.formDioException(e));
+    } catch (e) {
+      return Left(ServerFailure(errorMessage: e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, ProfileUserEntity>> updateUserData(
+    UpdateProfileParam params,
+  ) async {
+    try {
+      final result = await profileRemoteDataSource.updateProfile(params);
       return Right(result);
     } on DioException catch (e) {
       return Left(ServerFailure.formDioException(e));
