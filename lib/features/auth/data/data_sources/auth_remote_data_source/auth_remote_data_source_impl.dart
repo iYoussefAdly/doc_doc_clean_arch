@@ -16,7 +16,6 @@ class AuthRemoteDataSourceImpl extends AuthRemoteDataSource {
   @override
   @override
   Future<UserModel> login(LoginParams params) async {
-    try {
       final response = await apiServices.post(
         endPoint: kLoginEndPoint,
         data: {'email': params.email, 'password': params.password},
@@ -31,14 +30,10 @@ class AuthRemoteDataSourceImpl extends AuthRemoteDataSource {
       );
       await localDataSource.saveToken(token);
       return userModel;
-    } catch (e) {
-      throw Exception('Login failed: $e');
-    }
   }
 
   @override
   Future<UserModel> register(RegisterParams params) async {
-    try {
       final response = await apiServices.post(
         endPoint: kRegisterEndPoint,
         data: {
@@ -60,9 +55,6 @@ class AuthRemoteDataSourceImpl extends AuthRemoteDataSource {
       );
       await localDataSource.saveToken(token);
       return userModel;
-    } catch (e) {
-      throw Exception('Register failed: $e');
-    }
   }
 
   @override

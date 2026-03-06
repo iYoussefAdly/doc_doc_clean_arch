@@ -1,6 +1,4 @@
 import 'package:doc_doc_clean_arch/core/utils/functions/setub_service_locator.dart';
-import 'package:doc_doc_clean_arch/features/profile/domain/repos/profile_repo.dart';
-import 'package:doc_doc_clean_arch/features/profile/domain/use_cases/get_user_data_use_case.dart';
 import 'package:doc_doc_clean_arch/features/profile/presentation/manager/get_user_data_cubit/get_user_data_cubit.dart';
 import 'package:doc_doc_clean_arch/features/profile/presentation/views/widgets/details_section.dart';
 import 'package:doc_doc_clean_arch/features/profile/presentation/views/widgets/head_container.dart';
@@ -25,14 +23,22 @@ class ProfileViewBody extends StatelessWidget {
               left: 0,
               right: 0,
               bottom: 0,
-              child: BlocProvider(
-                create: (context) => GetUserDataCubit(GetUserDataUseCase(profileRepo: getIt<ProfileRepo>()))..getUserData(),
-                child: DetailsSection(),
+              child: BlocProvider<GetUserDataCubit>.value(
+                value: _initAndGetUserDataCubit(),
+                child: const DetailsSection(),
               ),
             ),
           ],
         );
       },
     );
+  }
+
+  GetUserDataCubit _initAndGetUserDataCubit() {
+    final cubit = getIt<GetUserDataCubit>();
+    if (cubit.state is GetUserDataInitial) {
+      cubit.getUserData();
+    }
+    return cubit;
   }
 }

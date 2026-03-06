@@ -8,13 +8,11 @@ class UpdateProfileTextFields extends StatelessWidget {
     required this.emailController,
     required this.phoneController,
     required this.genderController,
-    required this.passwordController,
   });
   final TextEditingController nameController;
   final TextEditingController emailController;
   final TextEditingController phoneController;
   final TextEditingController genderController;
-  final TextEditingController passwordController;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -28,11 +26,6 @@ class UpdateProfileTextFields extends StatelessWidget {
         CustomProfileTextField(
           hintText: "gender",
           controller: genderController,
-        ),
-        SizedBox(height: 16),
-        CustomProfileTextField(
-          hintText: "password",
-          controller: passwordController,
         ),
       ],
     );

@@ -16,6 +16,8 @@ import 'package:doc_doc_clean_arch/features/profile/data/remote_data_source.dart
 import 'package:doc_doc_clean_arch/features/profile/data/remote_data_source.dart/profile_remote_data_source_impl.dart';
 import 'package:doc_doc_clean_arch/features/profile/data/repos/profile_repo_impl.dart';
 import 'package:doc_doc_clean_arch/features/profile/domain/repos/profile_repo.dart';
+import 'package:doc_doc_clean_arch/features/profile/domain/use_cases/get_user_data_use_case.dart';
+import 'package:doc_doc_clean_arch/features/profile/presentation/manager/get_user_data_cubit/get_user_data_cubit.dart';
 import 'package:doc_doc_clean_arch/features/search/data/data_sources/search_data_sources/search_remote_data_source.dart';
 import 'package:doc_doc_clean_arch/features/search/data/data_sources/search_data_sources/search_remote_data_source_impl.dart';
 import 'package:doc_doc_clean_arch/features/search/data/data_sources/sort_data_sources/sort_remote_data_source.dart';
@@ -101,6 +103,14 @@ void profileFeature() {
   ProfileRemoteDataSourceImpl(apiServices: getIt<ApiServices>()),
   );
   getIt.registerSingleton<ProfileRepo>(
-    ProfileRepoImpl(profileRemoteDataSource: getIt<ProfileRemoteDataSource>())
+    ProfileRepoImpl(profileRemoteDataSource: getIt<ProfileRemoteDataSource>()),
+  );
+
+  // Profile use cases & cubits
+  getIt.registerSingleton<GetUserDataUseCase>(
+    GetUserDataUseCase(profileRepo: getIt<ProfileRepo>()),
+  );
+  getIt.registerSingleton<GetUserDataCubit>(
+    GetUserDataCubit(getIt<GetUserDataUseCase>()),
   );
 }
