@@ -1,5 +1,5 @@
-import 'package:doc_doc_clean_arch/features/profile/presentation/views/widgets/custom_profile_image.dart';
 import 'package:doc_doc_clean_arch/features/profile/presentation/views/widgets/details_container.dart';
+import 'package:doc_doc_clean_arch/features/profile/presentation/views/widgets/user_details.dart';
 import 'package:flutter/material.dart';
 
 class DetailsSection extends StatelessWidget {
@@ -15,7 +15,7 @@ class DetailsSection extends StatelessWidget {
           top: -60,
           left: 0,
           right: 0,
-          child: Center(child: CustomProfileImage()),
+          child: Center(child: UserDetails()),
         ),
       ],
     );

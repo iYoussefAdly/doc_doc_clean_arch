@@ -8,6 +8,7 @@ class DetailsContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
+      padding: const EdgeInsets.fromLTRB(16, 32, 16, 16),
       decoration: const BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.only(
@@ -15,7 +16,7 @@ class DetailsContainer extends StatelessWidget {
           topRight: Radius.circular(40),
         ),
       ),
-      child: Center(child: UserDetails()),
+      child: const UserDetails(),
     );
   }
 }

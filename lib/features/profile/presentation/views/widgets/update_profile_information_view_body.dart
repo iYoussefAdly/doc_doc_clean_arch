@@ -45,8 +45,7 @@ class UpdateProfileInformationViewBody extends StatelessWidget {
               children: [
                 PersonalInfoAppBar(title: 'personal information'),
                 SizedBox(height: 48),
-                ProfileImage(),
-                SizedBox(height: 51),
+                SizedBox(height: 71),
                 UpdateProfileTextFields(
                   nameController: nameController,
                   emailController: emailController,

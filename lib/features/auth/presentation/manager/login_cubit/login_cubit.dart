@@ -19,9 +19,9 @@ class LoginCubit extends Cubit<LoginState> {
         emit(LoginFailure(errorMessage: failure.errorMessage));
       },
       (user) {
-        emit(LoginSuccess(user: user));
-        checkUserisLoggedIn(true);
         saveUserName(name: user.name!);
+        emit(LoginSuccess(user:  user));
+        checkUserisLoggedIn(true);
       },
     );
   }

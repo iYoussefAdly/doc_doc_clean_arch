@@ -1,3 +1,4 @@
+import 'package:doc_doc_clean_arch/core/utils/functions/save_and_get_user_name.dart';
 import 'package:doc_doc_clean_arch/core/utils/functions/setub_service_locator.dart';
 import 'package:doc_doc_clean_arch/core/utils/styles.dart';
 import 'package:doc_doc_clean_arch/features/auth/domain/repos/auth_repo.dart';
@@ -11,26 +12,34 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class HomeIntro extends StatelessWidget {
   const HomeIntro({super.key, required this.name});
   final String name;
+
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        ListTile(
-          title: Text("Hi, $name!", style: Styles.styleBold18),
-          subtitle: Text("How Are you Today?", style: Styles.styleRegular11),
-          trailing: CustomNotification(),
-        ),
-        SizedBox(height: 10),
-        Padding(
-          padding: const EdgeInsets.only(left: 10),
-          child: BlocProvider(
-            create: (context) =>
-                LogoutCubit(LogoutUseCase(authRepo: getIt<AuthRepo>())),
-            child: LogOutWidget(),
-          ),
-        ),
-      ],
+    return FutureBuilder<String?>(
+      future: getUserName(),
+      builder: (context, snapshot) {
+        final displayName = snapshot.data ?? name;
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ListTile(
+              title: Text("Hi, $displayName!", style: Styles.styleBold18),
+              subtitle:
+                  Text("How Are you Today?", style: Styles.styleRegular11),
+              trailing: const CustomNotification(),
+            ),
+            const SizedBox(height: 10),
+            Padding(
+              padding: const EdgeInsets.only(left: 10),
+              child: BlocProvider(
+                create: (context) =>
+                    LogoutCubit(LogoutUseCase(authRepo: getIt<AuthRepo>())),
+                child: const LogOutWidget(),
+              ),
+            ),
+          ],
+        );
+      },
     );
   }
 }

@@ -25,7 +25,7 @@ class ProfileViewBody extends StatelessWidget {
               bottom: 0,
               child: BlocProvider<GetUserDataCubit>.value(
                 value: _initAndGetUserDataCubit(),
-                child: const DetailsSection(),
+                child:  DetailsSection(),
               ),
             ),
           ],
